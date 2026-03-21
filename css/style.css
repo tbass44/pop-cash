@@ -40,13 +40,13 @@ body {
    layout
 ========================= */
 .wrapper {
-  max-width: 420px;
+  max-width: 375px;
   margin: 0 auto;
   background: #fff;
 }
 
 .container {
-  max-width: 420px;
+  max-width: 375px;
   margin: 0 auto;
   padding: 0 20px;
 }
@@ -150,42 +150,43 @@ body {
   position: relative;
   background: #4FA668;
   overflow: hidden;
+  min-height: 430px;
 }
 
 .fv__inner {
   position: relative;
   width: 100%;
-  max-width: 420px;
+  max-width: 375px;
   margin: 0 auto;
 }
 
-.fv::before {
+/* .fv::before {
   content: "";
   position: absolute;
-  left: -20%;
-  top: 35%;
-  width: 140%;
-  height: 120px;
-  background: #6FC08A;
-  transform: rotate(-8deg);
+  left: 0;
+  top: 45%;
+  width: 100%;
+  height: 140px;
+  background:
+    url("../img/fv-back.png") no-repeat center / cover;
 }
 
 .fv::after {
   content: "";
   position: absolute;
-  left: -20%;
-  top: 55%;
-  width: 140%;
-  height: 120px;
-  background: #5AB37B;
-  transform: rotate(-8deg);
-}
+  left: 0;
+  top: 80%;
+  width: 100%;
+  height: 140px;
+  background:
+    url("../img/fv-back.png") no-repeat center / cover;
+} */
 
 .fv__woman {
   position: absolute;
-  left: 92px;
-  top: 148px;
-  width: 240px; /* 仮（あと調整OK） */
+  left: 100px;
+  top: 155px;
+  width: 277px; 
 }
 
 .fv__badge {
@@ -212,28 +213,77 @@ body {
   width: 100%;
 }
 
-.fv__metrics {
-  margin-top: 16px;
+.fv__metric {
+  display: block;
+  transform: none;
+  margin-left: -26px;
+}
+.fv__metric2 {
+  display: block;
+  transform: none;
+  margin-left: -26px;
+  margin-top: -25px;
 }
 
-.fv__metric {
-  margin-bottom: 12px;
+.fv__metricImg {
+  width: 100%;
+  max-width: 290px;
+}
+
+/* .fv__metric {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  transform: rotate(-5.25deg);
+}
+
+.fv__speed {
+  width: 28px;
+}
+
+.fv__right {
+  display: flex;
+  flex-direction: column;
+}
+
+.fv__topNote {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  margin-bottom: 4px;
+}
+
+.fv__topNote .text {
+  font-size: 12px;
+  font-weight: 500;
+  color: #333333;
+}
+
+.fv__topNote .line {
+  width: 20px;
+  height: 1px;
+  background: #333333;
 }
 
 .value {
   display: flex;
   align-items: baseline;
-  gap: 4px;
+  gap: 2px;
 }
 
 .big {
   font-size: 62px;
   font-weight: 700;
+  text-shadow: 2px 3px 3px rgba(0, 0, 0, 0.62);
+  color: #FFDA03;
 }
 
 .mid {
   font-size: 33px;
   font-weight: 700;
+  text-shadow: 2px 3px 3px rgba(0, 0, 0, 0.62);
+  color: #FFDA03;
 }
 
 .dot {
@@ -244,7 +294,7 @@ body {
 .small {
   font-size: 25px;
   font-weight: 700;
-}
+} */
 
 .fv__catchWrap {
   display: inline-block;
@@ -283,3 +333,4 @@ body {
   border: 1px solid #fff;
   border-radius: 999px;
 }
+
