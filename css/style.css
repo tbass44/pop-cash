@@ -1,0 +1,285 @@
+/* =========================
+   reset
+========================= */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+body, h1, h2, h3, p, ul, li {
+  margin: 0;
+  padding: 0;
+}
+
+ul {
+  list-style: none;
+}
+
+img {
+  max-width: 100%;
+  display: block;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+/* =========================
+   base
+========================= */
+body {
+  font-family: "Noto Sans JP", sans-serif;
+  color: #333;
+  line-height: 1.6;
+  background: #f5f5f5;
+}
+
+/* =========================
+   layout
+========================= */
+.wrapper {
+  max-width: 420px;
+  margin: 0 auto;
+  background: #fff;
+}
+
+.container {
+  max-width: 420px;
+  margin: 0 auto;
+  padding: 0 20px;
+}
+
+.section {
+  padding: 48px 0;
+}
+
+.fv {
+  padding: 0;
+}
+
+
+/* =========================
+   header
+========================= */
+.header {
+  height: 58.31px;
+}
+
+.header__inner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  height: 100%;
+
+  padding: 0 10px;
+}
+
+/* ロゴ */
+.header__logo img {
+  width: 154px;
+  height: 27px;
+}
+
+/* ボタンエリア */
+.header__actions {
+  display: flex;
+  gap: 8px;
+}
+
+/* ボタン共通 */
+.header__btn {
+  width: 88px;
+  height: 44px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start; /* ←ここ変更 */
+  padding-left: 12px; /* ←これ重要 */
+  font-family: "Noto Sans JP", sans-serif;
+  color: #fff;
+  border: 1px solid #fff;
+  border-radius: 8px;
+  text-decoration: none;
+}
+
+.header__btn-main {
+  font-size: 16px;
+  font-weight: 700;
+  line-height: 130%;
+}
+
+.header__btn-sub {
+  font-size: 12px;
+  font-weight: 700;
+  line-height: 130%;
+}
+
+.header__btn--red {
+  background: #F23134;
+}
+
+.header__btn--dark {
+  background: #4E3736;
+}
+
+.header__btn {
+  box-shadow: 0 3px 6px rgba(0,0,0,0.2);
+  position: relative;
+  padding-right: 12px; /* 矢印分余白 */
+}
+
+.header__btn::after {
+  content: "";
+  position: absolute;
+  right: 12px;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 0;
+  height: 0;
+  border-top: 3px solid transparent;
+  border-bottom: 3px solid transparent;
+  border-left: 5px solid #fff;
+}
+
+/* =========================
+   fv
+========================= */
+.fv {
+  position: relative;
+  background: #4FA668;
+  overflow: hidden;
+}
+
+.fv__inner {
+  position: relative;
+  width: 100%;
+  max-width: 420px;
+  margin: 0 auto;
+}
+
+.fv::before {
+  content: "";
+  position: absolute;
+  left: -20%;
+  top: 35%;
+  width: 140%;
+  height: 120px;
+  background: #6FC08A;
+  transform: rotate(-8deg);
+}
+
+.fv::after {
+  content: "";
+  position: absolute;
+  left: -20%;
+  top: 55%;
+  width: 140%;
+  height: 120px;
+  background: #5AB37B;
+  transform: rotate(-8deg);
+}
+
+.fv__woman {
+  position: absolute;
+  left: 92px;
+  top: 148px;
+  width: 240px; /* 仮（あと調整OK） */
+}
+
+.fv__badge {
+  position: absolute;
+  right: 17px;
+  top: 25px;
+  width: 86px;
+}
+
+.fv__text {
+  padding: 29px 26px 0;
+  color: #fff;  
+}
+
+.fv__catch {
+  font-size: 18px;
+  margin-bottom: 8px;
+}
+
+.fv__title img {
+  display: block;
+  margin: 0 auto;
+  max-width: 320px;
+  width: 100%;
+}
+
+.fv__metrics {
+  margin-top: 16px;
+}
+
+.fv__metric {
+  margin-bottom: 12px;
+}
+
+.value {
+  display: flex;
+  align-items: baseline;
+  gap: 4px;
+}
+
+.big {
+  font-size: 62px;
+  font-weight: 700;
+}
+
+.mid {
+  font-size: 33px;
+  font-weight: 700;
+}
+
+.dot {
+  font-size: 35px;
+  font-weight: 700;
+}
+
+.small {
+  font-size: 25px;
+  font-weight: 700;
+}
+
+.fv__catchWrap {
+  display: inline-block;
+  margin-bottom: 5px;
+}
+
+.fv__catch {
+  font-size: 32px;
+  line-height: 1;
+}
+
+.fv__catch .highlight {
+  background: #FFF8BD;
+  color: #18724A;
+  display: inline-block;
+  line-height: 1;
+  padding: 3px 3px 0;
+}
+
+.fv__catch .normal {
+  color: #fff;
+  font-size: 31px;
+}
+
+.fv__label {
+  margin-top: 8px;
+
+  display: inline-block;
+  padding: 4px 12px;
+
+  font-size: 16px;
+  font-weight: 700;
+  color: #fff;
+
+  background: #18724A;
+  border: 1px solid #fff;
+  border-radius: 999px;
+}
