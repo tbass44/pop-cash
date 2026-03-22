@@ -339,10 +339,34 @@ body {
    CTAエリア、リニューアルキャンペーン 
 ========================= */
 .ctaArea {
-  background: #EDE4D3; /* 薄ベージュ */
-  padding-top: 40px;
-  padding-bottom: 32px;
+  background: #F5F1D9; 
+  padding: 40px 20px 80px;
   position: relative;
+  width: 100%;
+  max-width: 375px;
+  margin: 0 auto;
+  overflow: visible;
+}
+
+.ctaArea::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  height: 53px; /* ←波の高さと同じくらい */
+  background: #E9E9E9;
+  z-index: 0;
+}
+
+.ctaArea__wave {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 53px;
+  background: url("../img/wave.png") no-repeat center / cover;
+  z-index: 1;
 }
 
 .fv__campaign {
@@ -440,9 +464,15 @@ body {
   padding: 6px 0;
 }
 
+
+/* =========================
+   CTAエリア
+========================= */
 .ctaArea__buttons {
   margin-top: 16px;
   display: flex;
   flex-direction: column;
   gap: 12px;
 }
+
+
