@@ -160,28 +160,6 @@ body {
   margin: 0 auto;
 }
 
-/* .fv::before {
-  content: "";
-  position: absolute;
-  left: 0;
-  top: 45%;
-  width: 100%;
-  height: 140px;
-  background:
-    url("../img/fv-back.png") no-repeat center / cover;
-}
-
-.fv::after {
-  content: "";
-  position: absolute;
-  left: 0;
-  top: 80%;
-  width: 100%;
-  height: 140px;
-  background:
-    url("../img/fv-back.png") no-repeat center / cover;
-} */
-
 .fv__woman {
   position: absolute;
   left: 100px;
@@ -229,6 +207,66 @@ body {
   width: 100%;
   max-width: 290px;
 }
+
+.fv__catchWrap {
+  display: inline-block;
+  margin-bottom: 5px;
+}
+
+.fv__catch {
+  font-size: 32px;
+  line-height: 1;
+}
+
+.fv__catch .highlight {
+  background: #FFF8BD;
+  color: #18724A;
+  display: inline-block;
+  line-height: 1;
+  padding: 3px 3px 0;
+}
+
+.fv__catch .normal {
+  color: #fff;
+  font-size: 31px;
+}
+
+.fv__label {
+  margin-top: 8px;
+
+  display: inline-block;
+  padding: 4px 12px;
+
+  font-size: 16px;
+  font-weight: 700;
+  color: #fff;
+
+  background: #18724A;
+  border: 1px solid #fff;
+  border-radius: 999px;
+}
+
+/* .fv::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 45%;
+  width: 100%;
+  height: 140px;
+  background:
+    url("../img/fv-back.png") no-repeat center / cover;
+}
+
+.fv::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 80%;
+  width: 100%;
+  height: 140px;
+  background:
+    url("../img/fv-back.png") no-repeat center / cover;
+} */
 
 /* .fv__metric {
   display: flex;
@@ -296,41 +334,115 @@ body {
   font-weight: 700;
 } */
 
-.fv__catchWrap {
-  display: inline-block;
-  margin-bottom: 5px;
+
+/* =========================
+   CTAエリア、リニューアルキャンペーン 
+========================= */
+.ctaArea {
+  background: #EDE4D3; /* 薄ベージュ */
+  padding-top: 40px;
+  padding-bottom: 32px;
+  position: relative;
 }
 
-.fv__catch {
-  font-size: 32px;
-  line-height: 1;
+.fv__campaign {
+  margin-top: -90px;
+  position: relative;
+  z-index: 2;
+  width: 340px;
+  margin-left: auto;
+  margin-right: auto;
+  border-radius: 8.5px;
+  overflow: hidden;
+  box-shadow: 0 0 31.88px rgba(0, 0, 0, 0.35);
+  background: linear-gradient(
+    to bottom,
+    #FFDA03 42%,
+    #FFB803 100%
+  );
 }
 
-.fv__catch .highlight {
-  background: #FFF8BD;
-  color: #18724A;
-  display: inline-block;
-  line-height: 1;
-  padding: 3px 3px 0;
+.fv__campaign-main{
+  margin: 8px 0;
 }
 
-.fv__catch .normal {
-  color: #fff;
-  font-size: 31px;
-}
-
-.fv__label {
-  margin-top: 8px;
-
-  display: inline-block;
-  padding: 4px 12px;
-
-  font-size: 16px;
+.fv__campaign-title {
+  text-align: center;
+  font-size: 21px; /* ←ここ重要 */
   font-weight: 700;
-  color: #fff;
-
-  background: #18724A;
-  border: 1px solid #fff;
-  border-radius: 999px;
+  color: #18724A;
+  line-height: 1; /* ←詰める */
+  padding: 12px 0 14px; /* ←下に余白追加 */
+  border-bottom: none;
+  position: relative;
 }
 
+.fv__campaign-title::after {
+  content: "";
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  bottom: 6px;
+  width: 80%;
+  border-bottom: 2px dashed #18724A;
+}
+
+.fv__campaign-main {
+  text-align: center;
+  padding: 16px 0;
+}
+
+.fv__campaign-main .text {
+  font-weight: 700;
+  color: #18724A;
+  line-height: 0;
+}
+
+.fv__campaign-main .label {
+  font-size: 23px;
+  margin-right: 4px;
+}
+
+.fv__campaign-main .num {
+  font-size: 55px;
+  color: #18724A; /* ←中が緑 */
+  -webkit-text-stroke: 1.5px #fff;
+  text-shadow: 3.95px 3.95px 3.95px rgba(0,0,0,0.4);
+  letter-spacing: -0.06em;
+}
+
+.fv__campaign-main .percent {
+  font-size: 32px;
+  color: #18724A;
+  -webkit-text-stroke: 1.0px #fff;
+  text-shadow: 3.95px 3.95px 3.95px rgba(0,0,0,0.4);
+  letter-spacing: -0.15em;
+}
+
+.fv__campaign-main .up {
+  font-size: 47px;
+  color: #18724A;
+  -webkit-text-stroke: 1.5px #fff;
+  text-shadow: 3.95px 3.95px 3.95px rgba(0,0,0,0.4);
+  letter-spacing: -0.04em;
+}
+
+.fv__campaign-main .unit {
+  font-size: 24px;
+  color: #fff;
+}
+
+.fv__campaign-note {
+  background: #18724A;
+  text-align: center;
+  font-size: 12px;
+  color: #fff;
+  padding: 6px 0;
+}
+
+.ctaArea__buttons {
+  margin-top: 16px;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
