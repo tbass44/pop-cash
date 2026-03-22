@@ -72,7 +72,6 @@ body {
   align-items: center;
   justify-content: space-between;
   height: 100%;
-
   padding: 0 10px;
 }
 
@@ -125,7 +124,8 @@ body {
 }
 
 .header__btn {
-  box-shadow: 0 3px 6px rgba(0,0,0,0.2);
+  box-shadow: 2px 2px 8px rgba(0,0,0,0.5),
+  inset 4px 4px 4px rgba(255,255,255,0.32);
   position: relative;
   padding-right: 12px; /* 矢印分余白 */
 }
@@ -476,3 +476,135 @@ body {
 }
 
 
+/* =========================
+   problem
+========================= */
+.problem {
+  background: #E9E9E9;
+  padding: 40px 20px 56px;
+  max-width: 375px;
+  width: 100%;
+  margin: 0 auto;
+}
+
+.problem .section-sub {
+  display: none;
+}
+
+.problem .section-title {
+  margin: 0 auto;
+  width: fit-content;
+  font-size: 28px;
+  line-height: 1.4;
+  font-weight: 700;
+  color: #333;
+  text-align: center;
+  letter-spacing: 0.02em;
+}
+
+.problem .section-title::before {
+  content: "";
+  display: block;
+}
+
+.problem .section-title .is-mark,
+.problem__titleMark {
+  background: #104E33;
+  color: #fff;
+  display: inline-block;
+  padding: 0 4px 2px;
+  line-height: 1.1;
+}
+
+.problem__inner {
+  margin-top: 16px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 15px;
+}
+
+.problemItem {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.problemItem--right {
+  justify-content: flex-start;
+  gap: 15px;
+}
+
+.problemItem--left {
+  justify-content: flex-end;
+  gap: 15px;
+}
+
+.problemItem__avatar {
+  flex: 0 0 66px;
+  width: 66px;
+  height: 66px;
+  border-radius: 50%;
+  object-fit: cover;
+}
+
+.problemItem__bubble {
+  position: relative;
+  width: 198px;
+  min-height: 65px;
+  background: #fff;
+  border-radius: 6px;
+  box-shadow: 4px 4px 8px rgba(0, 0, 0, 0.25);
+  padding: 10px 16px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.problemItem--right .problemItem__bubble::before,
+.problemItem--left .problemItem__bubble::before {
+  content: "";
+  position: absolute;
+  top: 25px;
+  width: 0;
+  height: 0;
+  border-top: 9px solid transparent;
+  border-bottom: 9px solid transparent;
+}
+
+.problemItem--right .problemItem__bubble::before {
+  left: -9px;
+  border-right: 10px solid #fff;
+}
+
+.problemItem--left .problemItem__bubble::before {
+  right: -9px;
+  border-left: 10px solid #fff;
+}
+
+.problemItem__text {
+  font-family: "Noto Sans JP", sans-serif;
+  font-size: 16px;
+  line-height: 130%;
+  color: #333;
+  font-weight: 700;
+}
+
+.problemItem__mark {
+  display: inline-block;
+  background: #104E33;
+  color: #fff;
+  padding: 3px;
+  line-height: 1.1;
+  margin-left: -3px;
+}
+
+/* タイトルの一部マーカー用 */
+.problem .section-title .mark {
+  display: inline-block;
+  background: #104E33;
+  color: #fff;
+  padding: 3px;
+  padding-right: 6px;
+  line-height: 1.1;
+}
