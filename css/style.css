@@ -608,3 +608,459 @@ body {
   padding-right: 6px;
   line-height: 1.1;
 }
+
+/* =========================
+   reason（number内包）
+========================= */
+.reason {
+  max-width: 375px;
+  width: 100%;
+  margin: 0 auto;
+  position: relative;
+}
+
+/* ポップキャッシュですべて解決カード */
+.solution {
+  position: relative;
+  z-index: 10;
+  margin-top: -40px; /* ← problemに食い込ませる */
+  margin-bottom: -50px;
+  text-align: center;
+}
+.solution__inner {
+  position: relative;
+  display: inline-block;
+  background: #FFDA03;
+  color: #18724A;
+  padding: 12px 0 8px;
+  border-radius: 8px;
+  line-height: 130%;
+  font-weight: 700;
+  text-align: center;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.25);
+  width: 294px;
+}
+.solution__inner::after {
+  content: "";
+  position: absolute;
+  bottom: -10px;
+  left: 50%;
+  transform: translateX(-50%);
+  border-left: 8px solid transparent;
+  border-right: 8px solid transparent;
+  border-top: 10px solid #FFDA03;
+}
+.solution__deco {
+  position: absolute;
+  width: 42px;
+}
+.solution__deco--left {
+  left: 15px;
+  top: 10px;
+}
+.solution__deco--right {
+  right: 15px;
+  top: 10px;
+}
+.solution__text {
+  line-height: 130%;
+  font-weight: 700;
+  color: #333;
+  text-shadow: 0 4px 4px rgba(0,0,0,0.25);
+}
+.solution__top {
+  font-size: 18px;
+}
+.solution__bottom {
+  font-size: 28px;
+  line-height: 1.2;
+}
+
+/* 上（緑） */
+.reason__top {
+  background: #4FA668;
+  padding: 60px 0 40px;
+  color: #fff;
+}
+
+.reason__lead {
+  text-align: center;
+  margin-bottom: 16px;
+  margin-top: 20px;
+}
+
+.reason__sub {
+  font-size: 14px;
+  font-weight: 700;
+  color: #FFE75B;
+  line-height: 1;
+}
+
+.reason__main {
+  font-size: 16px;
+  font-weight: 700;
+  color: #FFE75B;
+  line-height: 1;
+}
+
+.reason__main .no {
+  font-size: 28px;
+}
+
+.reason__main .num {
+  font-size: 33px;
+}
+
+.reason__laurel {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+}
+
+.reason__laurel img {
+  width: 24px;
+}
+
+.reason__title {
+  position: relative;
+  text-align: center;
+  color: #fff;
+  font-weight: 700;
+  line-height: 1.3;
+}
+
+.reason__title-top {
+  font-size: 24px;
+}
+
+.reason__title-bottom {
+  font-size: 28px;
+}
+
+.reason__star {
+  position: absolute;
+  width: 24px;
+}
+
+.reason__star--left {
+  left: 35px;
+  top: 10px;
+}
+
+.reason__star--right {
+  right: 35px;
+  top: 10px;
+}
+
+
+/* カード横並び */
+.reason__list {
+  margin-top: 45px;
+  display: flex;
+  gap: 6px;
+}
+
+.reasonItem {
+  background: #fff;
+  border-radius: 8px;
+  width: 100%;
+  padding: 24px 0 8px;
+  text-align: center;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.25);
+  flex: 1;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.reasonItem__pointWrap {
+  position: absolute;
+  top: -24px;
+  left: 50%;
+  transform: translateX(-50%);
+}
+.reasonItem__point {
+  background: #fff;
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  font-size: 10px;
+  color: #4FA668;
+  font-weight: 700;
+  font-size: 7px;
+}
+.reasonItem__point span {
+  font-size: 18px;
+  margin-top: -6px;
+}
+
+.reasonItem__title {
+  font-size: 14px;
+  line-height: 1.3;
+  font-weight: 700;
+  color: #18724A;
+  margin-bottom: 8px;
+}
+
+.reasonItem__image {
+  margin-bottom: 8px;
+}
+
+.reasonItem__desc {
+  font-size: 14px;
+  font-weight: 700;
+  color: #333;
+  line-height: 1.3;
+}
+
+.reasonItem__desc .num {
+  font-size: 22px;
+}
+
+.reasonItem__desc .highlight {
+  background: linear-gradient(
+    transparent 60%,
+    #FFDA03 60%
+  );
+  padding: 0 2px;
+}
+
+/* =========================
+   number
+========================= */
+.reason__number {
+  background: #4FA668;
+  padding: 15px 0 32px;
+}
+
+.number__inner {
+  position: relative;
+  background-color: #F5F1D9;
+  border-radius: 0 0 16px 16px;
+  padding: 32px 12px;
+  overflow: hidden;
+  background-image:
+    linear-gradient(#fff 1px, transparent 1px),
+    linear-gradient(90deg, #fff 1px, transparent 1px);
+  background-size: 8px 8px;
+}
+
+.number__header .number__clip {
+  position: absolute;
+  top: -23px;
+  left: 12px;
+  width: 40px;
+}
+
+.number__header {
+  position: relative;
+  background: #18724A;
+  border-radius: 16px 16px 0 0;
+  padding: 16px 12px;
+  text-align: center;
+}
+
+.number__title {
+  color: #fff;
+  font-size: 20px;
+  font-weight: 700;
+}
+.number__title span {
+  font-size: 24px;
+}
+
+.number__labelBox {
+  position: absolute;
+  background: #fff;
+  padding: 6px 12px;
+  border-radius: 6px;
+  font-size: 16px;
+  font-weight: 700;
+  line-height: 1.3;
+  box-shadow: 0 4px 4px rgba(0,0,0,0.25);
+  text-align: center;
+  min-width: 140px;
+}
+
+.number__labelBox::after {
+  content: "";
+  position: absolute;
+  bottom: -8px;
+  left: 60%;
+  transform: translateX(-50%);  
+  border-left: 8px solid transparent;
+  border-right: 8px solid transparent;
+  border-top: 8px solid #fff;
+}
+
+.number__labelBox span {
+  background: #FFDA03;
+  padding: 0 6px;
+  font-size: 20px;
+  display: inline-block;
+}
+
+/* 左 */
+.number__labelBox--left {
+  top: 20px;
+  left: 20px;
+}
+
+/* 右 */
+.number__labelBox--right {
+  top: 20px;
+  right: 10px;
+}
+
+.number__graphs {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 50px;
+}
+
+.number__graph--left {
+  position: relative;
+  width: 48%;
+}
+
+.number__graph--left img {
+  width: 100%;
+}
+
+.number__graph--right {
+  width: 48%;
+}
+
+.number__graph--right img {
+  width: 100%;
+}
+
+.number__result {
+  position: relative;
+  margin-top: 24px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* 月桂樹 */
+.number__laurel {
+  width: 24px;
+}
+
+.number__laurel--left {
+  margin-right: 6px;
+}
+
+.number__laurel--right {
+  margin-left: 6px;
+}
+
+/* テキスト全体 */
+.number__text {
+  text-align: left;
+}
+
+/* 利用者実績 */
+.number__label {
+  font-size: 14px;
+  color: #18724A;
+  font-weight: 700;
+  margin-bottom: 2px;
+  line-height: 1;
+  margin-left: 30px;
+}
+
+/* メイン */
+.number__main {
+  font-weight: 700;
+  color: #18724A;
+  background-size: contain;
+  display: inline-block;
+  padding-bottom: 6px;
+  letter-spacing: -0.03em;
+  line-height: 1;
+}
+
+/* 数字 */
+.number__main .num {
+  font-size: 36px;
+  position: relative;
+  display: inline-block;
+  z-index: 1;
+}
+
+.number__main .num::before {
+  content: "";
+  position: absolute;
+  left: -5px;           /* ← 左にはみ出す */
+  bottom: -5px;
+  width: calc(100% + 30px); /* ← 横幅広げる */
+  height: 15px;
+  background: url("../img/underline.svg") no-repeat center / 100% 100%;
+  transform: translateY(6px);
+  z-index: -1;
+}
+
+/* 人を */
+.number__main .unit {
+  font-size: 20px;
+}
+
+/* 突破!! */
+.number__main .strong {
+  font-size: 36px;
+}
+
+
+/* =========================
+   CTA（下部）
+========================= */
+
+.cta {
+  background: #FFDA03; /* ← Figma yellow */
+  padding: 20px;
+  position: relative;
+  overflow: hidden;
+  width: 100%;
+  max-width: 375px;
+  margin: 0 auto;
+}
+
+/* 内側 */
+.cta__inner {
+  position: relative;
+}
+
+/* テキスト */
+.cta__lead {
+  font-size: 18px;
+  font-weight: 700;
+  line-height: 1.3;
+  color: #333;
+  margin-bottom: 13px;
+  margin-left: 22px;
+}
+
+/* 女性 */
+.cta__woman {
+  position: absolute;
+  right: 30px;
+  top: -10px;
+  width: 110px;
+}
+
+/* ボタン */
+.cta__buttons {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
