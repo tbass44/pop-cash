@@ -1064,3 +1064,222 @@ body {
   gap: 16px;
 }
 
+
+/* =========================
+   compare
+========================= */
+.compare {
+  background: #F5F1D9;
+  width: 100%;
+  max-width: 375px;
+  margin: 0 auto;
+  padding: 32px 20px 40px;
+  overflow: visible;
+}
+
+.compare__heading {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  margin-bottom: 20px;
+}
+
+.compare__icon img {
+  width: 110px;
+}
+
+.compare__title {
+  color: #18724A;
+  font-weight: 700;
+  line-height: 1.2;
+}
+
+.compare__title-top {
+  display: block;
+  font-size: 24px;
+}
+
+.compare__title-bottom {
+  display: block;
+  font-size: 30px;
+}
+
+/* =========================
+   compare table
+========================= */
+.compare__table {
+  position: relative;
+  margin-top: 16px;
+  overflow: visible;
+}
+
+/* 行 */
+.compare__row {
+  display: flex;
+}
+
+/* セル共通 */
+.compare__cell {
+  flex: 1;
+  min-width: 0;
+  height: 40px;
+  padding: 0 6px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  font-weight: 700;
+  border-right: 1px solid #F5F1D9;
+  border-bottom: 1px solid #F5F1D9;
+  background: #E9E9E9;
+  position: relative;
+}
+
+/* 左列も均等幅に戻す */
+.compare__label {
+  flex: 1;
+  background: #A9C3B0;
+  color: #18724A;
+  font-size: 14px;
+  line-height: 1.35;
+  justify-content: flex-start;
+  padding-left: 8px;
+}
+
+/* ヘッダー共通 */
+.compare__row--head .compare__cell {
+  height: 40px;
+  background: #6E6E6E;
+  color: #fff;
+  font-size: 12px;
+  line-height: 1.2;
+}
+
+/* 左上 */
+.compare__row--head .compare__label {
+  background: #18724A;
+  color: #fff;
+  font-size: 12px;
+  justify-content: center;
+  text-align: center;
+  padding-left: 0;
+}
+
+/* 中央列本体 */
+.compare__main {
+  border: none !important;
+  position: relative;
+  z-index: 5;
+}
+
+/* 2〜4行目だけ */
+.compare__row:nth-child(n+3) .compare__main::after {
+  content: "";
+  position: absolute;
+  left: 10%;
+  right: 10%;
+  bottom: 0;
+  height: 1px;
+  background: #fff;
+  z-index: 3;
+}
+
+/* 中央列ヘッダー */
+.compare__row--head .compare__mainHead {
+  position: relative;
+  z-index: 5;
+  background: transparent !important;
+  display: flex;
+  align-items: center;
+  justify-content: center; /* ★これで中央 */
+  text-align: center;
+  color: transparent;
+}
+
+/* ★本体を疑似要素で作る */
+.compare__mainHead::before {
+  content: "";
+  position: absolute;
+  top: -12px; /* ← 上に飛び出し */
+  left: 0;
+  right: -4px;
+  bottom: 0;
+  background: #FFDA03;
+  border-radius: 6px 6px 0 0;
+  z-index: -1;
+}
+
+
+/* 右端 */
+.compare__cell:last-child {
+  border-right: none;
+}
+
+.compare__mainLabel {
+  position: absolute;
+  top: -12px;
+  left: 25%;
+  width: 25%;
+  height: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 700;
+  font-size: 14px;
+  color: #fff;
+  z-index: 6;
+  pointer-events: none;
+}
+
+/* =========================
+   中央列ハイライト
+========================= */
+.compare__mainWrap {
+  position: absolute;
+  top: 0;
+  left: 25%;
+  width: 25%;
+  height: calc(100% + 12px);
+  pointer-events: none;
+  z-index: 2;
+}
+
+/* 背景 */
+.compare__mainBox {
+  position: absolute;
+  inset: 0;
+  background: #F5F1D9;
+  border-radius: 6px;
+  border: none;
+  box-shadow: 0 0 0 4px #FFDA03;
+  z-index: 1;
+}
+
+/* 星 */
+.compare__star {
+  position: absolute;
+  display: block;
+  pointer-events: none;
+  z-index: 10;
+}
+
+.compare__star--top {
+  width: 54px;
+  top: -15px;
+  right: -14px;  
+}
+
+.compare__star--bottom {
+  width: 48px;
+  bottom: -14px;
+  left: -14px;
+}
+
+/* 注釈 */
+.compare__note {
+  margin-top: 10px;
+  font-size: 12px;
+  line-height: 1.4;
+  color: #333;
+}
