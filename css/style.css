@@ -1714,3 +1714,157 @@ body {
 .cta__woman-2 {
   right: 15px;
 }
+
+
+/* =========================
+   FAQ
+========================= */
+
+.faq {
+  padding: 48px 20px;
+  width: 100%;
+  max-width: 375px;
+  margin: 0 auto;
+}
+
+.faq .section-title {
+  text-align: left;
+  font-size: 24px;
+  line-height: 1.5;
+  margin-bottom: 32px;
+}
+
+.faq__group {
+  margin-bottom: 24px;
+}
+
+.faq__groupTitle {
+  font-size: 20px;
+  font-weight: 700;
+  color: #4FA668;
+  margin-bottom: 16px;
+  position: relative;
+  padding-left: 16px;
+}
+
+.faq__groupTitle::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 2px;
+  width: 2px;
+  height: 30px;
+  background: #4FA668;
+}
+
+/* アイテム */
+.faq-item {
+  margin-bottom: 8px;
+  box-shadow: 0 0 16px rgba(0,0,0,0.08);
+}
+
+/* 質問 */
+.faq-q {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  background: #fff;
+  border-radius: 8px;
+  padding: 16px;
+  color: #18724A;
+  font-weight: 700;
+  position: relative;  
+}
+
+.is-open .faq-q{
+  border-radius: 8px 8px 0 0;
+}
+
+/* Q */
+.faq-q__icon {
+  font-size: 24px;
+  font-weight: 700;
+}
+
+/* テキスト */
+.faq-q__text {
+  font-size: 15px;
+  line-height: 1.5;
+  width: 245px;
+}
+
+/* 矢印 */
+.faq-q__arrow {
+  margin-left: auto;
+  width: 4px;
+  height: 8px;
+  position: relative;
+}
+
+.faq-q__arrow::before,
+.faq-q__arrow::after {
+  content: "";
+  position: absolute;
+  width: 10px;
+  height: 1px;
+  background: #18724A;
+  top: 50%;
+}
+
+.faq-q__arrow::before {
+  left: 0;
+  transform: translateY(-50%) rotate(-45deg);
+}
+
+.faq-q__arrow::after {
+  right: 0;
+  transform: translateY(-50%) rotate(45deg);
+}
+
+/* 回答（初期は閉じる） */
+.faq-a {
+  max-height: 0;
+  overflow: hidden;
+  transition: all 0.3s ease;
+}
+
+/* 開いた状態 */
+.faq-item.is-open .faq-a {
+  max-height: 200px;
+  border-radius: 0 0 8px 8px;
+  margin-top: -10px;
+}
+
+/* 中身 */
+.faq-a__inner {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  background: #fff;
+  padding: 16px;
+  box-shadow: 0 0 16px rgba(0,0,0,0.08);
+}
+
+.faq-a__icon {
+  font-size: 24px;
+  font-weight: 700;
+  color: #333;
+}
+
+.faq-a__text {
+  font-size: 14px;
+  line-height: 1.5;
+  color: #333;
+}
+
+.faq-a__text small {
+  display: block;
+  font-size: 11px;
+  line-height: 1.5;
+  color: #7d7d7d;
+}
+
+/* 矢印回転 */
+.faq-item.is-open .faq-q__arrow {
+  transform: rotate(180deg);
+}

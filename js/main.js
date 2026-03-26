@@ -36,3 +36,26 @@ document.addEventListener('DOMContentLoaded', function () {
   updateVoiceBar();
   voiceSwiper.on('slideChange', updateVoiceBar);
 });
+
+
+// =========================
+// FAQ アコーディオン
+// =========================
+const faqItems = document.querySelectorAll('.faq-item');
+
+faqItems.forEach(item => {
+  const question = item.querySelector('.faq-q');
+
+  question.addEventListener('click', () => {
+
+    // 全部閉じる（1個だけ開く仕様）
+    faqItems.forEach(el => {
+      if (el !== item) {
+        el.classList.remove('is-open');
+      }
+    });
+
+    // トグル
+    item.classList.toggle('is-open');
+  });
+});
