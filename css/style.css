@@ -1493,3 +1493,224 @@ body {
   border-radius: 999px;
   transition: width 0.3s;
 }
+
+/* =========================
+   check
+========================= */
+.check {
+  background: #fff;
+  text-align: center;
+  position: relative;
+  width: 100%;
+  max-width: 375px;
+  margin: 0 auto;
+  position: relative;
+  padding: 50px 0 0;
+}
+
+.check::before {
+  content: "";
+  position: absolute;
+  top: -10px;
+  left: 0;
+  width: 100%;
+  height: 24px;
+  background-image: url("../img/file-spring.svg");
+  background-repeat: no-repeat;   /* ← ここ変更 */
+  background-size: 100% 31px;     /* ← 幅を合わせる */
+  z-index: 2;
+}
+
+/* 内側 */
+.check__inner {
+  max-width: 340px;
+  margin: 0 auto;
+  text-align: center;
+  position: relative;  
+}
+
+.tile-bg {
+  background-color: #fafafa;
+  background-image: 
+    linear-gradient(rgba(0,0,0,0.05) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(0,0,0,0.05) 1px, transparent 1px);
+  background-size: 8px 8px;
+}
+
+.check__headline {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  padding-bottom: 16px;
+  margin-bottom: 16px;
+}
+
+.check__headline::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  border-bottom: 1px dashed #18724A;
+}
+
+/* 画像サイズ固定 */
+.check__image {
+  width: 120px;
+}
+
+/* 左側（テキスト） */
+.check__label,
+.check__title {
+  text-align: center;
+}
+
+/* 右側に画像を寄せる用 */
+.check__inner img {
+  max-width: 100%;
+  height: auto;
+}
+
+/* ラベル */
+.check__label {
+  display: inline-block;
+  font-size: 16px;
+  font-weight: 700;
+  background: #fff;
+  color: #18724A;
+  padding: 4px 8px;
+  border-radius: 4px;
+  margin-bottom: 8px;
+  border: 1px solid #18724A; 
+}
+
+.check__title {
+  font-weight: 700;
+  color: #333;
+  line-height: 1.3;
+}
+
+/* 現金化業者 */
+.check__title-top {
+  font-size: 20px;
+}
+
+/* 信頼度 */
+.check__title-main {
+  font-size: 24px;
+}
+
+/* 5つの〜チェック */
+.check__title-sub {
+  font-size: 20px;
+}
+
+/* リスト */
+.check__list {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  padding: 0 20px;
+}
+
+/* アイテム */
+.checkItem {
+  display: flex;
+  align-items: flex-start;
+  gap: 4px;
+  text-align: left;
+}
+
+.checkItem img {
+  width: 24px;          /* ←少し小さく */
+  height: 24px;
+  flex-shrink: 0;
+}
+
+.checkItem__title {
+  font-size: 20px;
+  font-weight: 700;
+  color: #18724A;
+  line-height: 1.3;
+  margin-bottom: 4px;
+}
+
+.checkItem__text {
+  font-size: 14px;
+  color: #333;
+  line-height: 1.2;
+}
+
+/* 下の緑エリア */
+.check__bottom {
+  position: relative;
+  background: transparent;
+  padding: 48px 10px 20px;
+  overflow: hidden;
+}
+
+.check__bottom::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  height: calc(100% - 38px); /* ← 斜め分を除く */
+  background: #4FA668;
+  z-index: 0;
+}
+
+/* 斜め画像 */
+.check__bg {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 1;
+}
+
+/* 中身 */
+.check__content {
+  position: relative;
+  z-index: 2;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 16px;
+  color: #fff;
+}
+
+/* 花丸 */
+.check__icon {
+  width: 74px;
+}
+
+/* テキスト */
+.check__text {
+  font-size: 16px;
+  font-weight: 700;
+  line-height: 1.4;
+}
+
+.check__line1 {
+  font-size: 18px; /* 必要なら調整 */
+}
+
+.check__line2 {
+  font-size: 18px;
+}
+
+.check__line3 {
+  font-size: 24px;
+  font-weight: bold; /* 強調したいなら */
+}
+
+/* cta */
+.cta__lead-2 {
+  margin-left: 0;
+}
+
+.cta__woman-2 {
+  right: 15px;
+}
