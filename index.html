@@ -10,8 +10,11 @@
   <link rel="stylesheet" href="css/style.css" />
   <link rel="stylesheet" href="css/component.css" />
 
-  <!-- Swiper -->
-  <link rel="stylesheet" href="lib/swiper/swiper-bundle.min.css" />
+<!-- Swiper CSS -->
+<link
+  rel="stylesheet"
+  href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css"
+/>
 
 </head>
 
@@ -442,35 +445,97 @@
         </div>
       </div>
     </section>
-
     
     <!-- 声 -->
-    <section class="section voice">
-      <!-- 利用実績 -->
+    <section class="voice">
       <div class="user">
         <div class="user__inner">
           <img src="img/user.svg" alt="利用者の9割がリピート">
         </div>
       </div>
 
-      <div class="container">
-        <p class="section-sub">VOICE</p>
+      <div class="voice__inner">
         <h2 class="section-title">ご利用者様の声</h2>
 
         <div class="voice__slider swiper">
           <div class="swiper-wrapper">
-            <div class="swiper-slide"></div>
-          </div>
-          <div class="swiper-pagination"></div>
-          <div class="swiper-button-prev"></div>
-          <div class="swiper-button-next"></div>
-        </div>
 
+            <div class="swiper-slide">
+              <div class="voiceCard">
+                <div class="voiceCard__avatar">
+                  <img src="img/voice-1.svg" alt="">
+                </div>
+                <p class="voiceCard__meta">30代女性 / 東京都</p>
+                <h3 class="voiceCard__title">久しぶりに<br>活用しました</h3>
+                <p class="voiceCard__text">
+                  旅行で金欠になり、久しぶりに利用しました。他社より換金率が高く、端数までしっかり振り込まれました。スマホで完結する手軽さが自分に合っています。
+                </p>
+              </div>
+            </div>
+
+            <div class="swiper-slide">
+              <div class="voiceCard">
+                <div class="voiceCard__avatar">
+                  <img src="img/voice-2.svg" alt="">
+                </div>
+                <p class="voiceCard__meta">20代男性 / 神奈川県</p>
+                <h3 class="voiceCard__title">スムーズに<br>利用できた</h3>
+                <p class="voiceCard__text">
+                  生活費が足りず、初めて利用しました。怪しい勧誘も一切なく、透明性の高いサービスだと感じました。また困った時はぜひお願いします。
+                </p>
+              </div>
+            </div>
+
+            <div class="swiper-slide">
+              <div class="voiceCard">
+                <div class="voiceCard__avatar">
+                  <img src="img/voice-3.svg" alt="">
+                </div>
+                <p class="voiceCard__meta">40代女性 / 兵庫県</p>
+                <h3 class="voiceCard__title">数回<br>利用しています</h3>
+                <p class="voiceCard__text">
+                  審査不要で信用情報に響かず、迅速に現金化できるのが助かります。換金率も安定しており、困った時に数回利用しています。
+                </p>
+              </div>
+            </div>
+
+            <div class="swiper-slide">
+              <div class="voiceCard">
+                <div class="voiceCard__avatar">
+                  <img src="img/voice-4.svg" alt="">
+                </div>
+                <p class="voiceCard__meta">30代男性 / 埼玉県</p>
+                <h3 class="voiceCard__title">対応が<br>丁寧でした</h3>
+                <p class="voiceCard__text">
+                  電話対応が丁寧で、仕組みを分かりやすく説明してくれたのが好印象でした。家族に内緒で進められたのも有り難いです。無事に終わり、感謝しています。
+                </p>
+              </div>
+            </div>
+
+            <div class="swiper-slide">
+              <div class="voiceCard">
+                <div class="voiceCard__avatar">
+                  <img src="img/voice-5.svg" alt="">
+                </div>
+                <p class="voiceCard__meta">20代女性 / 千葉県</p>
+                <h3 class="voiceCard__title">手続きが<br>とても楽でした！</h3>
+                <p class="voiceCard__text">
+                  身分証だけでスムーズに進み、煩わしい書類もなし。最初は不安でしたが、即入金されて安心しました。また頼りにします。
+                </p>
+              </div>
+            </div>
+
+          </div>
+
+          <div class="voice__progress">
+            <div class="voice__bar"></div>
+          </div>
+        </div>
       </div>
     </section>
 
     <!-- 初めて -->
-    <section class="section beginner">
+    <section class="beginner">
       <div class="container">
         <p class="section-sub">BEGINNER</p>
         <h2 class="section-title">初めての方へ</h2>
@@ -533,7 +598,7 @@
 </div>
 
 <!-- JS -->
-<script src="lib/swiper/swiper-bundle.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
 <script src="js/main.js"></script>
 <script src="js/form.js"></script>
 
