@@ -1108,9 +1108,15 @@ body {
 /* =========================
    compare table
 ========================= */
-.compare__table {
+.compare__tableWrap {
   position: relative;
   margin-top: 16px;
+  overflow: visible;
+}
+
+.compare__table {
+  position: relative;
+  z-index: 2;
   overflow: visible;
 }
 
@@ -1121,7 +1127,6 @@ body {
 
 /* セル共通 */
 .compare__cell {
-  flex: 1;
   min-width: 0;
   height: 40px;
   padding: 0 6px;
@@ -1136,9 +1141,28 @@ body {
   position: relative;
 }
 
-/* 左列も均等幅に戻す */
+/* 1列目 */
+.compare__cell:nth-child(1) {
+  flex: 98;
+}
+
+/* 2列目（黄色のメイン） */
+.compare__cell:nth-child(2) {
+  flex: 104;
+}
+
+/* 3列目 */
+.compare__cell:nth-child(3) {
+  flex: 40;
+}
+
+/* 4列目 */
+.compare__cell:nth-child(4) {
+  flex: 40;
+}
+
+/* 左列 */
 .compare__label {
-  flex: 1;
   background: #A9C3B0;
   color: #18724A;
   font-size: 14px;
@@ -1149,7 +1173,6 @@ body {
 
 /* ヘッダー共通 */
 .compare__row--head .compare__cell {
-  height: 40px;
   background: #6E6E6E;
   color: #fff;
   font-size: 12px;
@@ -1160,100 +1183,103 @@ body {
 .compare__row--head .compare__label {
   background: #18724A;
   color: #fff;
-  font-size: 12px;
   justify-content: center;
   text-align: center;
   padding-left: 0;
 }
 
-/* 中央列本体 */
-.compare__main {
-  border: none !important;
-  position: relative;
-  z-index: 5;
+/* 中央列の元ヘッダー文字は使わない */
+.compare__mainHead {
+  color: transparent !important;
+  background: transparent !important;
 }
 
-/* 2〜4行目だけ */
-.compare__row:nth-child(n+3) .compare__main::after {
-  content: "";
-  position: absolute;
-  left: 10%;
-  right: 10%;
-  bottom: 0;
-  height: 1px;
-  background: #fff;
+/* 中央列の数値 */
+.compare__main {
+  border-right: none !important;
+  border-bottom: none !important;
+  color: #333;
+  font-size: 22px;
+  line-height: 1;
+  background: transparent;
+  position: relative;
   z-index: 3;
 }
 
-/* 中央列ヘッダー */
-.compare__row--head .compare__mainHead {
-  position: relative;
-  z-index: 5;
-  background: transparent !important;
-  display: flex;
-  align-items: center;
-  justify-content: center; /* ★これで中央 */
-  text-align: center;
-  color: transparent;
-}
-
-/* ★本体を疑似要素で作る */
-.compare__mainHead::before {
+/* 白線は 93 / 95 / 99.2 の上だけ */
+.compare__row:nth-child(3) .compare__main::before,
+.compare__row:nth-child(4) .compare__main::before,
+.compare__row:nth-child(5) .compare__main::before {
   content: "";
   position: absolute;
-  top: -12px; /* ← 上に飛び出し */
-  left: 0;
-  right: -4px;
-  bottom: 0;
-  background: #FFDA03;
-  border-radius: 6px 6px 0 0;
-  z-index: -1;
+  left: 12%;
+  right: 12%;
+  top: 0;
+  height: 1px;
+  background: #fff;
 }
-
 
 /* 右端 */
 .compare__cell:last-child {
   border-right: none;
 }
 
+/* =========================
+   中央ハイライト（完全独立）
+========================= */
+.compare__highlight {
+  position: absolute;
+  top: 0;
+  left: calc(98 / 320 * 100%);
+  width: calc(104 / 320 * 100%);
+  height: calc(100% + 8px);
+  z-index: 1;
+  pointer-events: none;
+  overflow: visible;
+  z-index: 1;
+}
+
+/* 本体 */
+.compare__highlightBox {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: #F5F1D9;
+  border: 4px solid #FFDA03;
+  border-radius: 0 0 6px 6px;
+  box-sizing: border-box;
+}
+
+/* ヘッダー */
+.compare__highlightHead {
+  position: absolute;
+  top: -12px;
+  left: 0;
+  width: 100%;
+  height: 52px;
+  background: #FFDA03;
+  border-radius: 6px 6px 0 0;
+  box-shadow: 0 -4px 0 0 #FFDA03, 4px 0 0 0 #FFDA03, -4px 0 0 0 #FFDA03;
+}
+
+/* ラベル */
 .compare__mainLabel {
   position: absolute;
   top: -12px;
-  left: 25%;
-  width: 25%;
-  height: 40px;
+  left: 0;
+  width: 100%;
+  height: 52px;
   display: flex;
   align-items: center;
   justify-content: center;
+  text-align: center;
   font-weight: 700;
   font-size: 14px;
+  line-height: 1.25;
   color: #fff;
-  z-index: 6;
-  pointer-events: none;
-}
-
-/* =========================
-   中央列ハイライト
-========================= */
-.compare__mainWrap {
-  position: absolute;
-  top: 0;
-  left: 25%;
-  width: 25%;
-  height: calc(100% + 12px);
-  pointer-events: none;
-  z-index: 2;
-}
-
-/* 背景 */
-.compare__mainBox {
-  position: absolute;
-  inset: 0;
-  background: #F5F1D9;
-  border-radius: 6px;
-  border: none;
-  box-shadow: 0 0 0 4px #FFDA03;
-  z-index: 1;
+  z-index: 3;
 }
 
 /* 星 */
@@ -1261,25 +1287,97 @@ body {
   position: absolute;
   display: block;
   pointer-events: none;
-  z-index: 10;
+  z-index: 4;
 }
 
 .compare__star--top {
   width: 54px;
-  top: -15px;
-  right: -14px;  
+  top: -18px;
+  right: -18px;
 }
 
 .compare__star--bottom {
   width: 48px;
-  bottom: -14px;
-  left: -14px;
+  bottom: -18px;
+  left: -18px;
 }
 
-/* 注釈 */
-.compare__note {
-  margin-top: 10px;
-  font-size: 12px;
-  line-height: 1.4;
-  color: #333;
+
+/* =========================
+   compare 仕組み
+========================= */
+.system__inner {
+  margin-top: 16px;
+  margin-bottom: 8px;
 }
+
+.system__inner img {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
+.system p {
+  font-size: 12px;
+}
+
+
+/* =========================
+   flow
+========================= */
+
+.flow {
+  width: 100%;
+  max-width: 375px;
+  margin: 0 auto;
+  padding: 40px 20px 165px;
+}
+
+.flow__inner img {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
+.flow__title {
+  color: #18724A;
+  font-weight: 700;
+  line-height: 1.4;
+  font-size: 24px;
+  text-align: center;
+  margin-bottom: 16px;
+}
+
+/* =========================
+   user
+========================= */
+.voice {
+  width: 100%;
+  max-width: 375px;
+  margin: 0 auto;
+  padding: 0 20px 40px;
+  background: #E3EFE7;
+  position: relative;
+}
+
+.user{
+  z-index: 10;
+  text-align: center;
+  position: absolute;
+  margin-top: -114px;
+}
+
+.user__inner img {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
+
+/* =========================
+   voice
+========================= */
+
+
+
+

@@ -363,58 +363,51 @@
         </div>
 
         <!-- テーブル -->
-        <div class="compare__table">
-
-          <div class="compare__mainLabel">
-            ポップキャッシュ
+        <div class="compare__tableWrap">
+          <div class="compare__highlight" aria-hidden="true">
+            <div class="compare__highlightBox"></div>
+            <div class="compare__highlightHead"></div>
+            <img src="img/compare-star-upper.svg" class="compare__star compare__star--top" alt="">
+            <img src="img/compare-star-buttom.svg" class="compare__star compare__star--bottom" alt="">
+            <p class="compare__mainLabel">ポップキャッシュ</p>
           </div>
-
-            <!-- ラッパー -->
-            <div class="compare__mainWrap">
-              <!-- 黄色枠 -->
-              <div class="compare__mainBox"></div>
-              <!-- 星（上） -->
-              <img src="img/compare-star-upper.svg" class="compare__star compare__star--top" alt="">
-              <!-- 星（下） -->
-              <img src="img/compare-star-buttom.svg" class="compare__star compare__star--bottom" alt="">
-
+        
+          <div class="compare__table">
+            <div class="compare__row compare__row--head">
+              <div class="compare__cell compare__label">ご利用金額（円）</div>
+              <div class="compare__cell compare__mainHead">ポップキャッシュ</div>
+              <div class="compare__cell">他社A</div>
+              <div class="compare__cell">他社B</div>
             </div>
-
-          <div class="compare__row compare__row--head">
-            <div class="compare__cell compare__label">ご利用金額（円）</div>
-            <div class="compare__cell compare__mainHead">ポップキャッシュ</div>
-            <div class="compare__cell">他社A</div>
-            <div class="compare__cell">他社B</div>
+        
+            <div class="compare__row">
+              <div class="compare__cell compare__label">1〜10万円</div>
+              <div class="compare__cell compare__main">91%</div>
+              <div class="compare__cell">88%</div>
+              <div class="compare__cell">83%</div>
+            </div>
+        
+            <div class="compare__row">
+              <div class="compare__cell compare__label">11〜30万円</div>
+              <div class="compare__cell compare__main">93%</div>
+              <div class="compare__cell">90%</div>
+              <div class="compare__cell">91%</div>
+            </div>
+        
+            <div class="compare__row">
+              <div class="compare__cell compare__label">31〜50万円</div>
+              <div class="compare__cell compare__main">95%</div>
+              <div class="compare__cell">92%</div>
+              <div class="compare__cell">91%</div>
+            </div>
+        
+            <div class="compare__row">
+              <div class="compare__cell compare__label">51万円〜</div>
+              <div class="compare__cell compare__main">99.2%</div>
+              <div class="compare__cell">93%</div>
+              <div class="compare__cell">93%</div>
+            </div>
           </div>
-
-          <div class="compare__row">
-            <div class="compare__cell compare__label">1〜10万円</div>
-            <div class="compare__cell compare__main">91%</div>
-            <div class="compare__cell">88%</div>
-            <div class="compare__cell">83%</div>
-          </div>
-
-          <div class="compare__row">
-            <div class="compare__cell compare__label">11〜30万円</div>
-            <div class="compare__cell compare__main">93%</div>
-            <div class="compare__cell">90%</div>
-            <div class="compare__cell">91%</div>
-          </div>
-
-          <div class="compare__row">
-            <div class="compare__cell compare__label">31〜50万円</div>
-            <div class="compare__cell compare__main">95%</div>
-            <div class="compare__cell">92%</div>
-            <div class="compare__cell">91%</div>
-          </div>
-
-          <div class="compare__row">
-            <div class="compare__cell compare__label">51万円〜</div>
-            <div class="compare__cell compare__main">99.2%</div>
-            <div class="compare__cell">93%</div>
-            <div class="compare__cell">93%</div>
-          </div>
-
         </div>
 
         <p class="compare__note">
@@ -425,40 +418,41 @@
         <!-- 仕組み（compare内） -->
         <!-- ===================== -->
         <div class="system">
-
-          <h3 class="system__title">
-            クレジット現金化の仕組みを解説！
-          </h3>
-
           <div class="system__inner">
-            <!-- ここに画像 or flow UI -->
+            <img src="img/flow-system.svg" alt="クレジット現金化の仕組み">
           </div>
-
+          <p>
+            ポップキャッシュは、ご本人名義のクレジットカードのショッピング枠があればどなたでもご利用いただけます。<br>
+            厳しい審査や、面倒な書類提出も不要で最短3分で口座に現金をお振込します。<br>
+            借入ではないため、信用情報機関への登録や、利用が第三者に知られることはありません。<br>
+            ご不明な点は何でも気軽にお問い合わせください。
+          </p>
         </div>
-
       </div>
     </section>
 
     <!-- 流れ -->
     <section class="section flow">
       <div class="container">
-        <p class="section-sub">FLOW</p>
-        <h2 class="section-title">ご利用の流れ</h2>
-        <div class="flow__inner"></div>
+        <h2 class="flow__title">
+          ご利用の流れ
+        </h2>        
+        <div class="flow__inner">
+          <img src="img/flow.svg" alt="ご利用の流れ">
+        </div>
       </div>
     </section>
 
-    <!-- 利用実績 -->
-    <section class="section user">
-      <div class="container">
-        <p class="section-sub">USER</p>
-        <h2 class="section-title">ポップキャッシュはご利用いただいた方</h2>
-        <div class="user__inner"></div>
-      </div>
-    </section>
-
+    
     <!-- 声 -->
     <section class="section voice">
+      <!-- 利用実績 -->
+      <div class="user">
+        <div class="user__inner">
+          <img src="img/user.svg" alt="利用者の9割がリピート">
+        </div>
+      </div>
+
       <div class="container">
         <p class="section-sub">VOICE</p>
         <h2 class="section-title">ご利用者様の声</h2>
