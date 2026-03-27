@@ -59,3 +59,17 @@ faqItems.forEach(item => {
     item.classList.toggle('is-open');
   });
 });
+
+
+// =========================
+// caution アコーディオン
+// =========================
+const caution = document.querySelector('.form_caution');
+
+if (caution) {
+  const header = caution.querySelector('.form_cautionHeader');
+
+  header.addEventListener('click', () => {
+    caution.classList.toggle('is-open');
+  });
+}

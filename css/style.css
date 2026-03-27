@@ -32,7 +32,7 @@ a {
 body {
   font-family: "Noto Sans JP", sans-serif;
   color: #333;
-  line-height: 1.6;
+  line-height: 1.3;
   background: #f5f5f5;
 }
 
@@ -1721,7 +1721,7 @@ body {
 ========================= */
 
 .faq {
-  padding: 48px 20px;
+  padding: 48px 20px 60px;
   width: 100%;
   max-width: 375px;
   margin: 0 auto;
@@ -1867,4 +1867,407 @@ body {
 /* 矢印回転 */
 .faq-item.is-open .faq-q__arrow {
   transform: rotate(180deg);
+}
+
+
+/* =========================
+   form
+========================= */
+.form {
+  background: #F5F1D9;
+  max-width: 375px;
+  margin: 0 auto;
+  padding: 95px 20px;
+  position: relative;
+}
+
+.form__heading {
+  position: absolute;
+  top: -20px;   /* ← 上に引き上げ */
+  left: 0;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  background: #42B96F;
+  padding: 16px 20px;
+  border-radius: 16px 16px 0 0;
+}
+
+.form__badge {
+  background: #fff;
+  color: #4FA668;
+  font-weight: 700;
+  font-size: 16px;
+  line-height: 1.3;
+  padding: 4px 8px;
+  text-align: center;
+}
+
+.form .section-title {
+  margin: 0;
+  font-size: 24px;
+  line-height: 1.3;
+  color: #fff;
+}
+
+/* payment */
+.form_payment {
+  background: #fff;
+  border-radius: 4px;
+  margin-bottom: 16px;
+}
+
+.form_paymentTitle {
+  background: #D9D9D9;
+  text-align: center;
+  font-weight: 700;
+  font-size: 15px;
+  padding: 8px 16px 6px;
+  border-radius: 4px 4px 0 0;
+}
+
+.form_paymentList{
+  padding: 15px 0 10px;
+}
+.form_paymentList img {
+  width: 100%;
+  height: auto;
+}
+
+/* caution */
+.form_caution {
+  border: 1px solid #333;
+  background: #FFDA03;
+  margin-bottom: 32px;
+}
+
+/* ヘッダー */
+.form_cautionHeader {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 16px;
+  position: relative;
+}
+
+/* ! アイコン */
+.form_cautionIcon {
+  width: 28px;
+  height: 28px;
+  border-radius: 50%;
+  background: #333;
+  color: #FFDA03;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 700;
+}
+
+/* テキスト */
+.form_cautionText {
+  font-weight: 700;
+  font-size: 14px;
+  line-height: 1.4;
+}
+
+/* 矢印 */
+.form_cautionArrow {
+  margin-left: auto;
+  width: 8px;
+  height: 8px;
+  border-right: 2px solid #333;
+  border-bottom: 2px solid #333;
+  transform: rotate(45deg);
+}
+
+/* ボディ（閉じた状態） */
+.form_cautionBody {
+  max-height: 0;
+  overflow: hidden;
+  transition: all 0.3s ease;
+}
+
+/* 開いた状態 */
+.form_caution.is-open .form_cautionBody {
+  max-height: 1000px; /* 適当に大きく */
+}
+
+/* 中身 */
+.form_cautionInner {
+  padding: 6px 12px;
+  font-size: 12px;
+  line-height: 1.5;
+}
+
+.form_cautionInner p {
+  margin-bottom: 16px;
+}
+
+.form_cautionInner ul {
+  margin-bottom: 16px;
+}
+
+/* 矢印回転 */
+.form_caution.is-open .form_cautionArrow {
+  transform: rotate(225deg);
+}
+
+
+/* formカード */
+.form__inner {
+  background: #fff;
+  border: 8px solid #42B96F;
+  border-radius: 16px;
+  padding: 32px 20px;
+  overflow: hidden;
+  box-shadow: 0 0 10px rgba(0,0,0,0.25);
+}
+
+.form__step {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 16px;
+  margin-bottom: 16px;  
+}
+
+.form__stepItem {
+  padding: 8px 16px;
+  border: 1px solid #4FA668;
+  font-size: 14px;
+  line-height: 1;
+  color: #4FA668;
+  border: 1px solid #4FA668;
+}
+
+.form__stepItem.is-active {
+  background: #4FA668;
+  color: #fff;
+}
+
+.form__stepArrow {
+  width: 0;
+  height: 0;
+  position: relative;
+}
+
+.form__stepArrow::before {
+  content: "";
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 8px;
+  height: 8px;
+  border-top: 1.4px solid #6bb57a;
+  border-right: 1.4px solid #6bb57a;
+  transform: translate(-50%, -50%) rotate(45deg);
+}
+
+.form__note {
+  font-size: 14px;
+  text-align: center;
+  margin-bottom: 32px;
+  line-height: 1.3;
+}
+
+.formItem {
+  margin-bottom: 20px;
+}
+
+.formItem__label {
+  font-size: 14px;
+  font-weight: 700;
+  margin-bottom: 6px;
+  display: block;
+}
+
+.requiredBox {
+  display: inline-block;
+  border: 1.4px solid #FF1D2D;
+  color: #FF1D2D;
+  font-size: 12px;
+  font-weight: 700;
+  line-height: 1;
+  padding: 2px;   /* ← これ追加が最重要 */
+  white-space: nowrap; /* ← 改行防止 */
+}
+
+.formItem__head {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-bottom: 8px;
+}
+
+.formItem__text {
+  font-size: 14px;
+}
+
+.required {
+  color: red;
+  font-size: 12px;
+  margin-right: 4px;
+}
+
+.optional {
+  background: #ccc;
+  font-size: 12px;
+  margin-right: 4px;
+}
+
+input,
+select,
+textarea {
+  width: 100%;
+  padding: 10px;
+  border: none;
+  background: #fff;
+}
+
+.formItem__radio {
+  display: flex;
+  gap: 5px;
+}
+
+.radioBox {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  background: #F4F4F4;
+  padding: 8px 16px;
+  font-size: 14px;
+  color: #999;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.radioBox input {
+  width: 16px;
+  height: 16px;
+  accent-color: #999;
+}
+
+.radioBox:has(input:checked) input {
+  accent-color: #333;
+}
+
+.radioBox:hover {
+  background: #f0f0f0;
+}
+
+.radioBox input:checked + span {
+  color: #333;
+  font-weight: 700;
+}
+
+.radioBox input:checked {
+  accent-color: #4FA668;
+}
+
+.radioBox.is-error {
+  border: 1px solid red;
+  background: #FFF0F0;
+  color: red;
+}
+
+/* select */
+.formItem__selectBox {
+  position: relative;
+  width: 100%;
+  background: #F4F4F4;
+  padding: 8px 16px;
+  font-size: 14px;
+  line-height: 1.5;
+  color: #999;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+/* デフォルト（未選択） */
+.select__current {
+  background: #F4F4F4;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  cursor: pointer;
+  color: #B3B3B3;
+}
+
+/* 選択後は黒 */
+.js-select.is-selected .select__current {
+  color: #333;
+}
+
+/* デフォルト矢印（下向き） */
+.select__current::after {
+  content: "";
+  display: inline-block;
+  width: 8px;
+  height: 8px;
+  border-right: 1.4px solid #999;
+  border-bottom: 1.4px solid #999;
+  transform: rotate(45deg);
+  margin-left: auto;
+  transition: transform 0.2s;
+}
+
+/* 開いてる時 → 上向き */
+.js-select.is-open .select__current::after {
+  transform: rotate(-135deg);
+}
+
+/* 選択済みでも上向き維持 */
+.js-select.is-selected .select__current::after {
+  transform: rotate(-135deg);
+}
+
+.select__list {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  width: 100%;
+  padding: 4px;
+  background: #F4F4F4;
+  border: none;
+  border-top: none;
+  display: none;
+  z-index: 10;
+  margin-top: 8px;
+}
+
+.select__list li {
+  padding: 8px 12px;
+  cursor: pointer;
+  font-size: 14px;
+}
+
+.select__list li:hover {
+  background: #f5f5f5;
+}
+
+.select__list li.is-selected {
+  color: #333;
+}
+
+
+
+
+
+
+.formItem__amount {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.form__submit button {
+  width: 100%;
+  padding: 14px;
+  background: #4FA668;
+  color: #fff;
+  border: none;
+  font-weight: 700;
 }
