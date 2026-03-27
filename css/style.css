@@ -2134,7 +2134,7 @@ textarea {
   flex: 1;
   display: flex;
   align-items: center;
-  justify-content: center;
+  justify-content: flex-start;
   gap: 10px;
   background: #F4F4F4;
   padding: 8px 16px;
@@ -2242,6 +2242,11 @@ textarea {
   padding: 8px 12px;
   cursor: pointer;
   font-size: 14px;
+  border-bottom: 1px solid #B3B3B3;
+}
+
+.select__list li:last-child {
+  border-bottom: none;
 }
 
 .select__list li:hover {
@@ -2252,16 +2257,140 @@ textarea {
   color: #333;
 }
 
+/* デフォルト ↓ */
+.select__current::after {
+  transform: rotate(45deg);
+  transition: 0.2s;
+}
 
+/* 通常オープン（未選択） → ↑ */
+.js-select.is-open:not(.is-open-reverse) .select__current::after {
+  transform: rotate(-135deg);
+}
 
+/* 選択済みでオープン → ↓ */
+.js-select.is-open.is-open-reverse .select__current::after {
+  transform: rotate(45deg);
+}
 
+/* 選択済みで閉じてる → ↑ */
+.js-select.is-selected:not(.is-open) .select__current::after {
+  transform: rotate(-135deg);
+}
 
-
+/* amount */
 .formItem__amount {
   display: flex;
-  align-items: center;
+  align-items: flex-end;
   gap: 8px;
 }
+
+/* input本体 */
+.formItem__amount input {
+  width: 120px;
+  height: 44px;
+  padding: 0 12px;
+  font-size: 16px;
+  background: #f5f5f5;
+  border: none;
+  border-radius: 4px;
+  outline: none;
+  color: #B3B3B3;
+}
+
+/* ラッパー */
+.amount__inputWrap {
+  position: relative;
+  width: 150px;
+}
+
+/* input */
+.amount__inputWrap input {
+  width: 100%;
+  height: 38px;
+  padding: 8px 16px;
+  background: #F4F4F4;
+  border: none;
+  font-size: 16px;
+  line-height: 1.5;
+  appearance: textfield;
+  color: #B3B3B3;
+}
+
+/* 入力確定後 */
+.amount__inputWrap input.is-active {
+  color: #333;
+}
+
+/* ネイティブスピナー消す */
+.amount__inputWrap input::-webkit-inner-spin-button,
+.amount__inputWrap input::-webkit-outer-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+/* ボタンエリア */
+.amount__buttons {
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 28px;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
+/* ボタン共通 */
+.amount__btn {
+  flex: 1;
+  border: none;
+  background: transparent;
+  cursor: pointer;
+  position: relative;
+}
+
+/* ▲ */
+.amount__btn--up::before {
+  content: "";
+  position: absolute;
+  top: 70%;
+  left: 50%;
+  transform: translate(-50%, -50%) rotate(-45deg);
+  width: 8px;
+  height: 8px;
+  border-top: 2px solid #999;
+  border-right: 2px solid #999;
+}
+
+/* ▼ */
+.amount__btn--down::before {
+  content: "";
+  position: absolute;
+  top: 30%;
+  left: 50%;
+  transform: translate(-50%, -50%) rotate(135deg);
+  width: 8px;
+  height: 8px;
+  border-top: 2px solid #999;
+  border-right: 2px solid #999;
+}
+
+/* 万円 */
+.formItem__amount span {
+  font-size: 16px;
+  color: #333;
+  line-height: 1.5;
+}
+
+
+
+
+
+
+
+
+
+
 
 .form__submit button {
   width: 100%;

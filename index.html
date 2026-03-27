@@ -998,12 +998,18 @@
       
         <!-- 金額 -->
         <div class="formItem">
-          <label class="formItem__label">
-            <span class="required">必須</span>
-            ご利用希望金額
-          </label>
+          <div class="formItem__head">
+            <span class="requiredBox">必須</span>
+            <p class="formItem__text">ご利用希望金額</p>
+          </div>   
           <div class="formItem__amount">
-            <input type="number" placeholder="10">
+            <div class="amount__inputWrap">
+              <input type="number" placeholder="10" min="1">             
+              <div class="amount__buttons">
+                <button type="button" class="amount__btn amount__btn--up"></button>
+                <button type="button" class="amount__btn amount__btn--down"></button>
+              </div>
+            </div>          
             <span>万円</span>
           </div>
         </div>
