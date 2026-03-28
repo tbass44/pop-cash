@@ -92,3 +92,60 @@ document.querySelectorAll('.amount__inputWrap').forEach((wrap) => {
     toggleActive();
   });
 });
+
+// =========================
+// text input（名前など）
+// =========================
+document.querySelectorAll('.formItem__input').forEach((input) => {
+  // amountはここでは除外（すでに別管理）
+  if (input.closest('.amount__inputWrap')) return;
+
+  const toggleActive = () => {
+    if (input.value && input.value.trim() !== '') {
+      input.classList.add('is-active');
+    } else {
+      input.classList.remove('is-active');
+    }
+  };
+
+  // 初期（placeholder状態）
+  input.classList.remove('is-active');
+
+  // 入力時
+  input.addEventListener('input', toggleActive);
+});
+
+
+// =========================
+// 郵便番号 → 住所自動入力
+// =========================
+const zipInput = document.getElementById('zip');
+const prefInput = document.getElementById('prefecture');
+const cityInput = document.getElementById('city');
+const addrInput = document.getElementById('address');
+
+zipInput.addEventListener('input', async () => {
+  const zip = zipInput.value.replace(/-/g, '');
+
+  if (zip.length !== 7) return;
+
+  try {
+    const res = await fetch(`https://zipcloud.ibsnet.co.jp/api/search?zipcode=${zip}`);
+    const data = await res.json();
+
+    if (data.results) {
+      const result = data.results[0];
+
+      prefInput.value = result.address1; // 都道府県
+      cityInput.value = result.address2 + result.address3; // 市区町村＋町名
+
+      // 入力状態を反映（既存のis-active用）
+      prefInput.classList.add('is-active');
+      cityInput.classList.add('is-active');
+
+      // 詳細は触らない（ユーザー入力）
+    }
+  } catch (e) {
+    console.error('住所取得エラー', e);
+  }
+});
