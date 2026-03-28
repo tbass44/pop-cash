@@ -1195,11 +1195,9 @@
     <!-- 会社概要 -->
     <section class="company">
       <div class="company__inner">
-        <h2 class="company__title">
-          <img src="img/logo.png" alt="ポップキャッシュ">
-          ポップキャッシュ
-        </h2>
-
+        <div class="company__title">
+          <img src="img/common-logo.svg" alt="ポップキャッシュ">
+        </div>
         <table class="company__table">
           <tr>
             <th>屋号</th>
@@ -1210,7 +1208,13 @@
             <td>
               東京都渋谷区広尾1-1-39 1F
               <div class="company__map">
-                <!-- GoogleMapここに埋め込み -->
+                <iframe
+                src="https://www.google.com/maps?q=東京都渋谷区広尾1-1-39&z=14&output=embed"
+                width="100%"
+                height="120"
+                style="border:0;"
+                loading="lazy">
+              </iframe>
               </div>
             </td>
           </tr>
@@ -1238,12 +1242,37 @@
       <a href="#" class="footer__link">プライバシーポリシー</a>
     </footer>
 
-</div>
+    <!-- モーダル -->
+    <div class="modal" id="privacyModal">
+      <div class="modal__overlay"></div>
+      <div class="modal__content">
+        <button class="modal__close"></button>      
+        <div class="modal__inner">
+          <h2 class="modal__title">プライバシーポリシー</h2>      
+          <div class="modal__body">
+            <p>
+              ポップキャッシュ（以下『当サイト』と言う）は、お客様の情報の保護に関しまして細心の注意を払って参りましたが、昨今の個人情報の漏えい等の事件・事故が頻繁に取りざたされている状況に鑑み、私どもは改めて個人情報を保護、管理することが弊社の事業活動の根幹に関わる責務であることを再確認し、すべての従業員が以下の項目について取り組むべく宣言致します。の情報の保護に関しまして細心の注意を払って参りましたが...
+            </p>      
+            <ul>
+              <li>
+                当サイトは、あらかじめご本人から同意を得た場合、又は法令により認められている場合を除き、通知若しくは公表した利用目的のため、又は取得状況からみて明らかな利用目的のためにのみ個人情報を利用致します。
+              </li>
+              <li>
+                当サイトは、あらかじめご本人から同意を得た場合、又は法令により認められている場合を除き、個人情報を第三者に開示又は提供いたしません。
+              </li>
+              <li>
+                当サイトは、個人情報への不正アクセス、個人情報の紛失、破壊、改ざん又は漏えい等を防止するために、個人情報を安全に管理し、セキュリティの確保・向上及び是正に努めます。
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
 
-<!-- JS -->
-<script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
-<script src="js/main.js"></script>
-<script src="js/form.js"></script>
+    <!-- JS -->
+    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+    <script src="js/main.js"></script>
+    <script src="js/form.js"></script>
 
-</body>
+  </body>
 </html>

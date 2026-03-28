@@ -73,3 +73,28 @@ if (caution) {
     caution.classList.toggle('is-open');
   });
 }
+
+
+// =========================
+// モーダル（プライバシーポリシー）
+// =========================
+const modal = document.getElementById('privacyModal');
+const openBtn = document.querySelector('.footer__link');
+const closeBtn = document.querySelector('.modal__close');
+const overlay = document.querySelector('.modal__overlay');
+
+// 開く
+openBtn.addEventListener('click', (e) => {
+  e.preventDefault();
+  modal.classList.add('is-active');
+});
+
+// 閉じる
+closeBtn.addEventListener('click', () => {
+  modal.classList.remove('is-active');
+});
+
+// 背景クリックでも閉じる
+overlay.addEventListener('click', () => {
+  modal.classList.remove('is-active');
+});
