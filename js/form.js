@@ -122,30 +122,110 @@ document.querySelectorAll('.formItem__input').forEach((input) => {
 const zipInput = document.getElementById('zip');
 const prefInput = document.getElementById('prefecture');
 const cityInput = document.getElementById('city');
-const addrInput = document.getElementById('address');
 
-zipInput.addEventListener('input', async () => {
-  const zip = zipInput.value.replace(/-/g, '');
+// 入力ページのみ（confirm.html 等では要素が無い）
+if (zipInput && prefInput && cityInput) {
+  zipInput.addEventListener('input', async () => {
+    const zip = zipInput.value.replace(/-/g, '');
 
-  if (zip.length !== 7) return;
+    if (zip.length !== 7) return;
 
-  try {
-    const res = await fetch(`https://zipcloud.ibsnet.co.jp/api/search?zipcode=${zip}`);
-    const data = await res.json();
+    try {
+      const res = await fetch(`https://zipcloud.ibsnet.co.jp/api/search?zipcode=${zip}`);
+      const data = await res.json();
 
-    if (data.results) {
-      const result = data.results[0];
+      if (data.results) {
+        const result = data.results[0];
 
-      prefInput.value = result.address1; // 都道府県
-      cityInput.value = result.address2 + result.address3; // 市区町村＋町名
+        prefInput.value = result.address1; // 都道府県
+        cityInput.value = result.address2 + result.address3; // 市区町村＋町名
 
-      // 入力状態を反映（既存のis-active用）
-      prefInput.classList.add('is-active');
-      cityInput.classList.add('is-active');
+        // 入力状態を反映（既存のis-active用）
+        prefInput.classList.add('is-active');
+        cityInput.classList.add('is-active');
 
-      // 詳細は触らない（ユーザー入力）
+        // 詳細は触らない（ユーザー入力）
+      }
+    } catch (e) {
+      console.error('住所取得エラー', e);
     }
-  } catch (e) {
-    console.error('住所取得エラー', e);
-  }
-});
+  });
+}
+
+
+// =========================
+// form validation + confirm遷移
+// =========================
+const form = document.querySelector('form');
+const confirmBtn = document.querySelector('.js-confirm');
+
+// 入力ページ：バリデーション → sessionStorage → confirm.html
+if (form && confirmBtn) {
+  confirmBtn.addEventListener('click', (e) => {
+    e.preventDefault();
+
+    let isValid = true;
+    const data = {};
+
+    const inputs = form.querySelectorAll('input, textarea, select');
+
+    inputs.forEach((input) => {
+      const name = input.name;
+      const value = input.type === 'checkbox'
+        ? input.checked
+        : input.value.trim();
+
+      if (input.hasAttribute('required')) {
+        let hasError = false;
+
+        if (input.type === 'radio') {
+          const group = form.querySelectorAll(`input[name="${name}"]`);
+          const isChecked = Array.from(group).some(i => i.checked);
+          if (!isChecked) hasError = true;
+        } else if (input.type === 'checkbox') {
+          if (!input.checked) hasError = true;
+        } else {
+          if (!value) hasError = true;
+        }
+
+        const parent = input.closest('.formItem');
+        if (hasError) {
+          isValid = false;
+          parent.classList.add('is-error');
+
+          const errorMsg = parent.querySelector('.error-message');
+          if (errorMsg) errorMsg.style.display = 'block';
+        } else {
+          parent.classList.remove('is-error');
+
+          const errorMsg = parent.querySelector('.error-message');
+          if (errorMsg) errorMsg.style.display = 'none';
+        }
+      }
+
+      if (name) {
+        data[name] = value;
+      }
+    });
+
+    if (!isValid) {
+      const firstError = document.querySelector('.is-error');
+      if (firstError) {
+        firstError.scrollIntoView({ behavior: 'smooth', block: 'center' });
+      }
+      return;
+    }
+
+    sessionStorage.setItem('formData', JSON.stringify(data));
+    location.href = 'confirm.html';
+  });
+}
+
+// 確認ページ：<form> が無いので最終送信のみ（サーバー連携はここに追加）
+if (!form && confirmBtn) {
+  confirmBtn.addEventListener('click', (e) => {
+    e.preventDefault();
+    sessionStorage.removeItem('formData');
+    location.href = 'index.html';
+  });
+}

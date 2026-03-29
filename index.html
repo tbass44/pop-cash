@@ -945,14 +945,15 @@
           </div>        
           <div class="formItem__radio">
             <label class="radioBox">
-              <input type="radio" name="card" value="yes">
+              <input type="radio" name="card" value="yes" required>
               <span>はい</span>
             </label>        
             <label class="radioBox">
-              <input type="radio" name="card" value="no">
+              <input type="radio" name="card" value="no" required>
               <span>いいえ</span>
             </label>
           </div>
+          <p class="error-message">※必ず選択してください</p>
         </div>
       
         <!-- セレクト -->
@@ -976,8 +977,9 @@
               <li data-value="mercari">メルカード</li>
             </ul>          
             <!-- 実際の送信用 -->
-            <input type="hidden" name="cardType">
+            <input type="hidden" name="cardType" required>
           </div>
+          <p class="error-message">※必ず選択してください</p>
         </div>
       
         <!-- 金額 -->
@@ -988,7 +990,7 @@
           </div>   
           <div class="formItem__amount">
             <div class="amount__inputWrap">
-              <input type="number" placeholder="10" min="1" class="formItem__input">             
+              <input type="number" placeholder="10" min="1" class="formItem__input" name="amount" required>             
               <div class="amount__buttons">
                 <button type="button" class="amount__btn amount__btn--up"></button>
                 <button type="button" class="amount__btn amount__btn--down"></button>
@@ -996,6 +998,7 @@
             </div>          
             <span>万円</span>
           </div>
+          <p class="error-message">※必ず入力してください</p>
         </div>
       
         <!-- 名前 -->
@@ -1005,9 +1008,10 @@
             <p class="formItem__text">お名前</p>
           </div>
           <div class="formItem_name">
-            <input type="text" class="formItem__input" placeholder="山田太郎">
+            <input type="text" class="formItem__input" placeholder="山田太郎" name="fullname" required>
             <p>＊姓名（氏名）を詰めて記載してください</p>
           </div>
+          <p class="error-message">※必ず入力してください</p>
         </div>
       
         <!-- フリガナ -->
@@ -1017,9 +1021,10 @@
             <p class="formItem__text">お名前（フリガナ）</p>
           </div>
           <div class="formItem_name">
-            <input type="text" class="formItem__input" placeholder="ヤマダタロウ">
+            <input type="text" class="formItem__input" placeholder="ヤマダタロウ" name="furigana" required>
             <p>＊姓名（氏名）を詰めて記載してください</p>
           </div>
+          <p class="error-message">※必ず入力してください</p>
         </div>
       
         <!-- メール -->
@@ -1033,8 +1038,11 @@
               type="email"
               class="formItem__input"
               placeholder="aaa@sample.com"
+              name="email"
+              required
             >
           </div>
+          <p class="error-message">※必ず入力してください</p>
         </div>
       
         <!-- 電話 -->
@@ -1044,12 +1052,13 @@
             <p class="formItem__text">電話番号</p>
           </div>
           <div class="formItem_name">
-            <input type="tel" class="formItem__input" placeholder="08012345678">
+            <input type="tel" class="formItem__input" placeholder="08012345678" name="tel" required>
             <p>
               ＊半角で詰めて記載してください<br>
               ＊お申込み後に「0120-●●●-●●●」より、内容確認のためお電話させていただきます。
             </p>
           </div>
+          <p class="error-message">※必ず入力してください</p>
         </div>
       
         <!-- 郵便番号 -->
@@ -1059,9 +1068,10 @@
             <p class="formItem__text">住所：郵便番号</p>
           </div>
           <div class="formItem_name">
-            <input type="text" class="formItem__input" id="zip" placeholder="1500012">
+            <input type="text" class="formItem__input" id="zip" placeholder="1500012" name="postnumber" required>
             <p>＊「ー（ハイフン）」は省略してください。</p>
           </div>
+          <p class="error-message">※必ず入力してください</p>
         </div>
       
         <!-- 都道府県 -->
@@ -1070,7 +1080,8 @@
             <span class="requiredBox">必須</span>
             <p class="formItem__text">住所：都道府県</p>
           </div>
-          <input type="text" id="prefecture" class="formItem__input" placeholder="東京都">
+          <input type="text" id="prefecture" class="formItem__input" placeholder="東京都" name="prefecture" required>
+          <p class="error-message">※必ず入力してください</p>
         </div>
       
         <!-- 市区町村 -->
@@ -1079,7 +1090,8 @@
             <span class="requiredBox">必須</span>
             <p class="formItem__text">住所：市区町村</p>
           </div>
-          <input type="text" id="city" class="formItem__input" placeholder="渋谷区広尾">
+          <input type="text" id="city" class="formItem__input" placeholder="渋谷区広尾" name="city" required>
+          <p class="error-message">※必ず入力してください</p>
         </div>
       
         <!-- 詳細 -->
@@ -1088,7 +1100,8 @@
             <span class="requiredBox">必須</span>
             <p class="formItem__text">住所：丁目・番地・建物名・部屋番号</p>
           </div>
-          <input type="text" id="address" class="formItem__input" placeholder="1-1-39　日本マンション202">
+          <input type="text" id="address" class="formItem__input" placeholder="1-1-39　日本マンション202" name="address" required>
+          <p class="error-message">※必ず入力してください</p>
         </div>
       
         <!-- セレクト -->
@@ -1118,9 +1131,10 @@
               <li data-value="希望なし">希望なし</li>
             </ul>          
             <!-- 実際の送信用 -->
-            <input type="hidden" name="preferredContactTime">
+            <input type="hidden" name="preferredContactTime" required>
           </div>
           <p class="formItem_name_p">＊お電話にて、1分ほどの簡単なヒアリングをさせていただきます。</p>
+          <p class="error-message">※必ず選択してください</p>
         </div>
       
         <!-- 金融業者理解 -->
@@ -1132,14 +1146,15 @@
           </div>        
           <div class="formItem__radio">
             <label class="radioBox">
-              <input type="radio" name="card" value="yes">
+              <input type="radio" name="agreement_not_financial" value="yes" required>
               <span>はい</span>
             </label>        
             <label class="radioBox">
-              <input type="radio" name="card" value="no">
+              <input type="radio" name="agreement_not_financial" value="no" required>
               <span>いいえ</span>
             </label>
           </div>
+          <p class="error-message">※必ず入力してください</p>
         </div>
       
         <!-- 任意 -->
@@ -1151,6 +1166,7 @@
           <textarea
             class="formItem__input"
             placeholder="特記事項がある方はこちらにご記入ください。"
+            name="content"
           ></textarea>
         </div>
       
@@ -1162,15 +1178,16 @@
           </div>  
           <div class="formItem__radio">
             <label class="radioBox">
-              <input type="radio" name="agreement" required>
+              <input type="radio" name="agreement" value="yes" required>
               <span>副業や投資目的での<br>第三者への支払いではない。</span>
             </label>
           </div>
+          <p class="error-message">※必ず入力してください</p>
         </div>
       
         <!-- ボタン -->
         <div class="form__submit">
-          <button type="submit">入力内容を確認する</button>
+          <button type="submit" class="js-confirm">入力内容を確認する</button>
         </div>
       
       </form>

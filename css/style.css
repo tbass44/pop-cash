@@ -2150,12 +2150,6 @@ textarea.formItem__input {
   accent-color: #4FA668;
 }
 
-.radioBox.is-error {
-  border: 1px solid red;
-  background: #FFF0F0;
-  color: red;
-}
-
 /* select */
 .formItem__selectBox {
   position: relative;
@@ -2439,6 +2433,78 @@ textarea.formItem__input {
 }
 
 
+/* =========================
+   form error（Figma準拠）
+========================= */
+
+/* 親 */
+.formItem.is-error {
+}
+
+/* input / textarea */
+.formItem.is-error .formItem__input {
+  border: 1px solid #FF1D2D;
+  background: #FFF0F0;
+  color: #FF1D2D;
+}
+
+/* placeholderも赤寄せ */
+.formItem.is-error .formItem__input::placeholder {
+  color: #FF9AA2;
+}
+
+/* select */
+.formItem.is-error .formItem__selectBox {
+  border: 1px solid red;
+  background: #FFF0F0;
+  color: #FF1D2D;
+}
+
+.formItem.is-error .formItem__selectBox .select__current {
+  background: #FFF0F0;
+  color: red;
+}
+
+/* amount */
+.formItem.is-error .amount__inputWrap input {
+  border: 1px solid #FF1D2D;
+  background: #FFF0F0;
+  color: #FF1D2D;
+}
+
+/* radio（枠だけ赤くする） */
+.formItem.is-error .radioBox {
+  border: 1px solid red;
+  background: #FFF0F0;
+}
+
+.formItem.is-error .radioBox span{
+  color: red;
+}
+
+.formItem.is-error input[type="radio"] {
+  accent-color: red;
+}
+
+/* checkbox（同意） */
+.formItem.is-error input[type="checkbox"] {
+  outline: 2px solid #FF1D2D;
+}
+
+/* エラーメッセージ */
+.error-message {
+  font-size: 12px;
+  color: #FF1D2D;
+  margin-top: 6px;
+  display: none;
+}
+
+/* 表示時 */
+.formItem.is-error .error-message {
+  display: block;
+}
+
+
 /* =====================
 会社概要
 ===================== */
@@ -2636,4 +2702,124 @@ textarea.formItem__input {
 }
 .modal__body li:last-child {
   margin-bottom: 0;
+}
+
+
+/* =====================
+確認ページ confirm.html
+===================== */
+.form_confirm {
+  background: #F5F1D9;
+  max-width: 375px;
+  margin: 0 auto;
+  padding: 32px 20px 48px;
+  position: relative;
+}
+
+.form_confirm .form__note span {
+  font-size: 11px;
+}
+
+/* =========================
+  confirmボタン
+========================= */
+.form__submit_confirm {
+  display: flex;
+  gap: 12px;
+  margin-top: 24px;
+}
+
+.form__submit_confirm button {
+  border: none;
+  font-size: 14px;
+  padding: 16px 12px;
+  cursor: pointer;
+  position: relative;
+}
+
+/* 戻るボタン */
+.form__submit_confirm .back-button {
+  flex: 0 0 30%;
+  background: #A9A9A9;
+  color: #fff;
+  padding-left: 28px;
+}
+
+/* ← */
+.back-button::before {
+  content: "";
+  position: absolute;
+  left: 20px;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 8px;
+  height: 8px;
+  border-top: 1.4px solid #fff;
+  border-left: 1.4px solid #fff;
+  transform: translateY(-50%) rotate(-45deg);
+}
+
+/* 送信ボタン */
+.form__submit_confirm .js-confirm {
+  flex: 1;
+  background: #4FA668;
+  color: #fff;
+  padding-right: 28px;
+}
+
+.form__submit .back-button::after {
+  content: none;
+}
+
+/* → */
+.js-confirm::after {
+  content: "";
+  position: absolute;
+  right: 12px;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 6px;
+  height: 6px;
+  border-top: 2px solid #fff;
+  border-right: 2px solid #fff;
+  transform: translateY(-50%) rotate(45deg);
+}
+
+
+/* =========================
+  confirmItem
+========================= */
+.confirmItem {
+  padding-bottom: 12px;
+  border-bottom: 1px dashed #3CB371; /* 緑の点線 */
+  margin-bottom: 12px;
+}
+
+/* 1行目（ラベル） */
+.confirmItem p:first-child {
+  font-weight: bold;
+  margin-bottom: 8px;
+  font-size: 14px;
+}
+
+/* 2行目（値） */
+.confirmItem p:last-child {
+  position: relative;
+  padding-left: 16px;
+  color: #333;
+  font-size: 14px;
+}
+
+/* ▶ 三角 */
+.confirmItem p:last-child::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 0;
+  height: 0;
+  border-left: 7px solid #3CB371;
+  border-top: 5px solid transparent;
+  border-bottom: 5px solid transparent;
 }
