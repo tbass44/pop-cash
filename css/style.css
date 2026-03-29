@@ -2437,10 +2437,6 @@ textarea.formItem__input {
    form error（Figma準拠）
 ========================= */
 
-/* 親 */
-.formItem.is-error {
-}
-
 /* input / textarea */
 .formItem.is-error .formItem__input {
   border: 1px solid #FF1D2D;

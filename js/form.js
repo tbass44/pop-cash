@@ -204,7 +204,13 @@ if (form && confirmBtn) {
       }
 
       if (name) {
-        data[name] = value;
+        if (input.type === 'radio') {
+          if (input.checked) {
+            data[name] = input.value;
+          }
+        } else {
+          data[name] = value;
+        }
       }
     });
 
@@ -221,11 +227,81 @@ if (form && confirmBtn) {
   });
 }
 
-// 確認ページ：<form> が無いので最終送信のみ（サーバー連携はここに追加）
+
+
+// =========================
+// 入力ページ：値復元
+// =========================
+const restoreData = sessionStorage.getItem('formData');
+
+if (restoreData && form) {
+  const data = JSON.parse(restoreData);
+
+  Object.keys(data).forEach((key) => {
+    const value = data[key];
+    const inputs = form.querySelectorAll(`[name="${key}"]`);
+
+    inputs.forEach((input) => {
+      if (input.type === 'radio') {
+        if (input.value === value) {
+          input.checked = true;
+        }
+      } else if (input.type === 'checkbox') {
+        input.checked = value === true;
+      } else {
+        input.value = value;
+      }
+
+      // is-activeも復元（見た目崩れ防止）
+      if (input.classList.contains('formItem__input') && input.value) {
+        input.classList.add('is-active');
+      }
+    });
+
+    // select系（カスタムUI）
+    const select = form.querySelector(`.js-select input[name="${key}"]`);
+    if (select && value) {
+      const wrapper = select.closest('.js-select');
+      const current = wrapper.querySelector('.select__current');
+      const item = wrapper.querySelector(`li[data-value="${value}"]`);
+
+      if (item) {
+        current.textContent = item.textContent;
+        wrapper.classList.add('is-selected');
+      }
+    }
+  });
+}
+
+
+// 確認ページ：送信テスト
 if (!form && confirmBtn) {
-  confirmBtn.addEventListener('click', (e) => {
+  confirmBtn.addEventListener('click', async (e) => {
     e.preventDefault();
-    sessionStorage.removeItem('formData');
-    location.href = 'index.html';
+
+    const raw = sessionStorage.getItem('formData');
+    const data = raw ? JSON.parse(raw) : {};
+
+    try {
+      const res = await fetch('https://httpbin.org/post', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json'
+        },
+        body: JSON.stringify(data)
+      });
+
+      const result = await res.json();
+      console.log('送信成功:', result);
+
+      alert('送信テスト成功！');
+
+      sessionStorage.removeItem('formData');
+      location.href = 'index.html';
+
+    } catch (err) {
+      console.error('送信失敗:', err);
+      alert('送信失敗');
+    }
   });
 }
