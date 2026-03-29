@@ -110,7 +110,7 @@
     
         <div class="ctaArea__buttons">
           <a href="#form" class="ctaBtn ctaBtn--primary">
-            <span class="ctaBtn__sub">今すぐのお申込みで最短 <strong class="js-time">12:30</strong> にお振込み</span>
+            <span class="ctaBtn__sub">今すぐのお申込みで最短 <strong class="js-time"></strong> にお振込み</span>
             <span class="ctaBtn__main">今すぐお申込みをする</span>
           </a>
           <a href="#" class="ctaBtn ctaBtn--dark">
@@ -350,8 +350,7 @@
 
 
     <!-- 比較 -->
-    <section class="section compare">
-      <div class="container">
+    <section class="compare">
 
         <div class="compare__heading">
           <!-- 左アイコン -->
@@ -366,51 +365,37 @@
         </div>
 
         <!-- テーブル -->
-        <div class="compare__tableWrap">
-          <div class="compare__highlight" aria-hidden="true">
-            <div class="compare__highlightBox"></div>
-            <div class="compare__highlightHead"></div>
-            <img src="img/compare-star-upper.svg" class="compare__star compare__star--top" alt="">
-            <img src="img/compare-star-buttom.svg" class="compare__star compare__star--bottom" alt="">
-            <p class="compare__mainLabel">ポップキャッシュ</p>
+        <div class="compare__flex">
+
+          <!-- 左 -->
+          <div class="compare__col compare__col--label">
+            <div class="cell head">ご利用金額<span>（円）</span></div>
+            <div class="cell">1〜10<span>万円</span></div>
+            <div class="cell">11〜30<span>万円</span></div>
+            <div class="cell">31〜50<span>万円</span></div>
+            <div class="cell">51<span>万円</span>〜</div>
           </div>
         
-          <div class="compare__table">
-            <div class="compare__row compare__row--head">
-              <div class="compare__cell compare__label">ご利用金額（円）</div>
-              <div class="compare__cell compare__mainHead">ポップキャッシュ</div>
-              <div class="compare__cell">他社A</div>
-              <div class="compare__cell">他社B</div>
-            </div>
-        
-            <div class="compare__row">
-              <div class="compare__cell compare__label">1〜10万円</div>
-              <div class="compare__cell compare__main">91%</div>
-              <div class="compare__cell">88%</div>
-              <div class="compare__cell">83%</div>
-            </div>
-        
-            <div class="compare__row">
-              <div class="compare__cell compare__label">11〜30万円</div>
-              <div class="compare__cell compare__main">93%</div>
-              <div class="compare__cell">90%</div>
-              <div class="compare__cell">91%</div>
-            </div>
-        
-            <div class="compare__row">
-              <div class="compare__cell compare__label">31〜50万円</div>
-              <div class="compare__cell compare__main">95%</div>
-              <div class="compare__cell">92%</div>
-              <div class="compare__cell">91%</div>
-            </div>
-        
-            <div class="compare__row">
-              <div class="compare__cell compare__label">51万円〜</div>
-              <div class="compare__cell compare__main">99.2%</div>
-              <div class="compare__cell">93%</div>
-              <div class="compare__cell">93%</div>
-            </div>
+          <!-- 中央 -->
+          <div class="compare__col compare__col--main">
+            <div class="cell head">ポップ<br>キャッシュ</div>
+            <div class="cell">91<span>%</span></div>
+            <div class="cell">93<span>%</span></div>
+            <div class="cell">95<span>%</span></div>
+            <div class="cell">99.2<span>%</span></div>
           </div>
+        
+          <!-- 右 -->
+          <div class="compare__col compare__col--sub">
+            <div class="cell head">
+              <span>他社A</span>
+              <span>他社B</span>
+            </div>
+            <div class="cell"><span>88<span class="percent">%</span></span><span>83<span class="percent">%</span></span></div>
+            <div class="cell"><span>90<span class="percent">%</span></span><span>91<span class="percent">%</span></span></div>
+            <div class="cell"><span>92<span class="percent">%</span></span><span>91<span class="percent">%</span></span></div>
+            <div class="cell"><span>93<span class="percent">%</span></span><span>93<span class="percent">%</span></span></div>
+          </div>        
         </div>
 
         <p class="compare__note">
@@ -431,7 +416,6 @@
             ご不明な点は何でも気軽にお問い合わせください。
           </p>
         </div>
-      </div>
     </section>
 
     <!-- 流れ -->

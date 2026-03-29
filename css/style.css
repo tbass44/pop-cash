@@ -1108,198 +1108,173 @@ body {
 /* =========================
    compare table
 ========================= */
-.compare__tableWrap {
-  position: relative;
-  margin-top: 16px;
-  overflow: visible;
+/* 横並び */
+.compare__flex{
+  display:flex;
+  justify-content:center;
+  align-items: flex-end;
+  margin-bottom: 16px;
 }
 
-.compare__table {
-  position: relative;
-  z-index: 2;
-  overflow: visible;
-}
-
-/* 行 */
-.compare__row {
-  display: flex;
+/* カラム */
+.compare__col{
+  display:flex;
+  flex-direction:column;
 }
 
 /* セル共通 */
-.compare__cell {
-  min-width: 0;
-  height: 40px;
-  padding: 0 6px;
+.cell{
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  font-weight:bold;
+  border-bottom:1px solid #F5F1D9;
+}
+
+/* 左 */
+.compare__col--label{
+  width: 98px;
+}
+
+/* 中央 */
+.compare__col--main{
+  width: 118px;
+}
+
+/* 右 */
+.compare__col--sub{
+  width: 119px;
+}
+
+/* 左 */
+.compare__col--label .cell{
   display: flex;
-  align-items: center;
-  justify-content: center;
-  text-align: center;
-  font-weight: 700;
-  border-right: 1px solid #F5F1D9;
-  border-bottom: 1px solid #F5F1D9;
-  background: #E9E9E9;
-  position: relative;
+  align-items: flex-end;
+  justify-content: flex-end;
+  background:#BAD2C3;
+  color:#18724A;
+  padding: 18px 8px 12px;
+  font-size: 16px;
 }
-
-/* 1列目 */
-.compare__cell:nth-child(1) {
-  flex: 98;
-}
-
-/* 2列目（黄色のメイン） */
-.compare__cell:nth-child(2) {
-  flex: 104;
-}
-
-/* 3列目 */
-.compare__cell:nth-child(3) {
-  flex: 40;
-}
-
-/* 4列目 */
-.compare__cell:nth-child(4) {
-  flex: 40;
-}
-
-/* 左列 */
-.compare__label {
-  background: #A9C3B0;
-  color: #18724A;
-  font-size: 14px;
-  line-height: 1.35;
-  justify-content: flex-start;
-  padding-left: 8px;
-}
-
-/* ヘッダー共通 */
-.compare__row--head .compare__cell {
-  background: #6E6E6E;
-  color: #fff;
+.compare__col--label .cell span{
   font-size: 12px;
-  line-height: 1.2;
 }
 
-/* 左上 */
-.compare__row--head .compare__label {
-  background: #18724A;
-  color: #fff;
-  justify-content: center;
-  text-align: center;
-  padding-left: 0;
+/* 左ヘッダ */
+.compare__col--label .head{
+  background:#18724A;
+  color:#fff;
+  padding: 8px 0;
+  font-size: 12px;
 }
 
-/* 中央列の元ヘッダー文字は使わない */
-.compare__mainHead {
-  color: transparent !important;
-  background: transparent !important;
+.compare__col--label .head span{
+  font-size: 10px;
 }
 
-/* 中央列の数値 */
-.compare__main {
-  border-right: none !important;
-  border-bottom: none !important;
-  color: #333;
-  font-size: 22px;
-  line-height: 1;
-  background: transparent;
+/* 中央（🔥メイン） */
+.compare__col--main{
+  background:#F5F1D9;
+  border:5px solid #FFD400;
+  border-radius:12px;
+  margin:0;
+  transform: translateY(5px);
+  box-shadow:0 6px 12px rgba(0,0,0,0.2);
   position: relative;
-  z-index: 3;
+  z-index: 1;
 }
 
-/* 白線は 93 / 95 / 99.2 の上だけ */
-.compare__row:nth-child(3) .compare__main::before,
-.compare__row:nth-child(4) .compare__main::before,
-.compare__row:nth-child(5) .compare__main::before {
+.compare__col--main .cell{
+  display: flex;
+  align-items: flex-end; /* ← 下揃え */
+  background:transparent;
+  font-size:23px;
+  font-weight: bold;
+  border-bottom:1px solid #fff;
+  padding: 13px 0 8px;
+}
+
+.compare__col--main .cell span{
+  font-size:12px;
+  margin-bottom: 2px;
+}
+
+.compare__col--main .cell:last-child{
+  border-bottom:none;
+}
+
+/* 上の星 */
+.compare__col--main::before {
   content: "";
   position: absolute;
-  left: 12%;
-  right: 12%;
-  top: 0;
-  height: 1px;
-  background: #fff;
-}
-
-/* 右端 */
-.compare__cell:last-child {
-  border-right: none;
-}
-
-/* =========================
-   中央ハイライト（完全独立）
-========================= */
-.compare__highlight {
-  position: absolute;
-  top: 0;
-  left: calc(98 / 320 * 100%);
-  width: calc(104 / 320 * 100%);
-  height: calc(100% + 8px);
-  z-index: 1;
+  top: -15px;
+  left: 85%;
+  transform: translateX(-50%);
+  width: 58px;
+  height: 32px;
+  background: url(../img/compare-star-upper.svg) no-repeat center / contain;
   pointer-events: none;
-  overflow: visible;
-  z-index: 1;
 }
 
-/* 本体 */
-.compare__highlightBox {
+/* 下の星 */
+.compare__col--main::after {
+  content: "";
   position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background: #F5F1D9;
-  border: 4px solid #FFDA03;
-  border-radius: 0 0 6px 6px;
-  box-sizing: border-box;
+  bottom: -15px;
+  left: 15%;
+  transform: translateX(-50%);
+  width: 58px;
+  height: 32px;
+  background: url("../img/compare-star-buttom.svg") no-repeat center / contain;
+  pointer-events: none;
 }
 
-/* ヘッダー */
-.compare__highlightHead {
-  position: absolute;
-  top: -12px;
-  left: 0;
-  width: 100%;
-  height: 52px;
-  background: #FFDA03;
-  border-radius: 6px 6px 0 0;
-  box-shadow: 0 -4px 0 0 #FFDA03, 4px 0 0 0 #FFDA03, -4px 0 0 0 #FFDA03;
-}
-
-/* ラベル */
-.compare__mainLabel {
-  position: absolute;
-  top: -12px;
-  left: 0;
-  width: 100%;
-  height: 52px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
+/* 中央ヘッダ */
+.compare__col--main .head{
+  background:#FFD400;
+  color:#333;
+  font-size: 17px;
+  font-weight: bold;
+  padding: 5px 0;
   text-align: center;
-  font-weight: 700;
-  font-size: 14px;
-  line-height: 1.25;
-  color: #fff;
-  z-index: 3;
 }
 
-/* 星 */
-.compare__star {
+/* 右 */
+.compare__col--sub .cell{
+  background:#F5F4F4;
+  display:flex;
+  justify-content:space-around;
+  position: relative;
+  padding: 17px 0 8px;
+  font-size: 20px;
+  color: gray;
+}
+
+.compare__col--sub .cell .percent{
+  font-size: 12px;
+}
+
+/* 右ヘッダ */
+.compare__col--sub .head{
+  background:gray;
+  color:#fff;
+  padding: 8px 0;
+  font-size: 12px;
+}
+
+/* 縦線を中央に引く */
+.compare__col--sub .cell::after {
+  content: "";
   position: absolute;
-  display: block;
-  pointer-events: none;
-  z-index: 4;
+  top: 0;
+  bottom: 0;
+  left: 50%;
+  width: 1px;
+  background: #F5F1D9;
 }
 
-.compare__star--top {
-  width: 54px;
-  top: -18px;
-  right: -18px;
-}
-
-.compare__star--bottom {
-  width: 48px;
-  bottom: -18px;
-  left: -18px;
+.compare__note {
+  font-size: 12px;
 }
 
 

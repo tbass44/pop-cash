@@ -98,3 +98,41 @@ closeBtn.addEventListener('click', () => {
 overlay.addEventListener('click', () => {
   modal.classList.remove('is-active');
 });
+
+
+// =========================
+// CTA 時間制御
+// =========================
+document.addEventListener('DOMContentLoaded', function () {
+  const now = new Date();
+  const currentHour = now.getHours();
+
+  const isBusinessHour = currentHour >= 9 && currentHour < 20;
+
+  const timeEls = document.querySelectorAll('.js-time');
+  const ctaSubs = document.querySelectorAll('.ctaBtn__sub');
+
+  if (isBusinessHour) {
+    // =========================
+    // 営業時間内 → +30分表示
+    // =========================
+    now.setMinutes(now.getMinutes() + 30);
+
+    const hours = String(now.getHours()).padStart(2, '0');
+    const minutes = String(now.getMinutes()).padStart(2, '0');
+
+    const timeText = `${hours}:${minutes}`;
+
+    timeEls.forEach(el => {
+      el.textContent = timeText;
+    });
+
+  } else {
+    // =========================
+    // 営業時間外 → テキスト変更
+    // =========================
+    ctaSubs.forEach(el => {
+      el.textContent = '24時間お申込み受付中';
+    });
+  }
+});
