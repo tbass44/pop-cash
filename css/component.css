@@ -172,3 +172,22 @@
   width: 100%;
   height: 100%;
 }
+
+@media screen and (min-width:992px) and (max-width:1200px) {
+  .pc-side .ctaBtn--primary::before,
+  .pc-side .ctaBtn--primary::after,
+  .pc-side .ctaBtn--dark::before,
+  .pc-side .ctaBtn--dark::after {
+    display: none;
+  }
+
+  .pc-side .ctaBtn__main {
+    font-size: 20px;
+    margin-left: 20px;
+  }
+
+  .pc-side .ctaBtn__main__dark {
+    font-size: 20px;
+    margin-left: 20px;
+  }
+}
