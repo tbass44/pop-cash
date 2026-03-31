@@ -275,33 +275,33 @@ if (restoreData && form) {
 
 
 // 確認ページ：送信テスト
-if (!form && confirmBtn) {
-  confirmBtn.addEventListener('click', async (e) => {
-    e.preventDefault();
+// if (!form && confirmBtn) {
+//   confirmBtn.addEventListener('click', async (e) => {
+//     e.preventDefault();
 
-    const raw = sessionStorage.getItem('formData');
-    const data = raw ? JSON.parse(raw) : {};
+//     const raw = sessionStorage.getItem('formData');
+//     const data = raw ? JSON.parse(raw) : {};
 
-    try {
-      const res = await fetch('https://httpbin.org/post', {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json'
-        },
-        body: JSON.stringify(data)
-      });
+//     try {
+//       const res = await fetch('https://httpbin.org/post', {
+//         method: 'POST',
+//         headers: {
+//           'Content-Type': 'application/json'
+//         },
+//         body: JSON.stringify(data)
+//       });
 
-      const result = await res.json();
-      console.log('送信成功:', result);
+//       const result = await res.json();
+//       console.log('送信成功:', result);
 
-      alert('送信テスト成功！');
+//       alert('送信テスト成功！');
 
-      sessionStorage.removeItem('formData');
-      location.href = 'index.html';
+//       sessionStorage.removeItem('formData');
+//       location.href = 'index.html';
 
-    } catch (err) {
-      console.error('送信失敗:', err);
-      alert('送信失敗');
-    }
-  });
-}
+//     } catch (err) {
+//       console.error('送信失敗:', err);
+//       alert('送信失敗');
+//     }
+//   });
+// }

@@ -1346,7 +1346,7 @@ body {
   width: 100%;
   max-width: 375px;
   margin: 0 auto;
-  padding: 0 20px 40px;
+  padding: 0 0 40px 20px;
   background: #E3EFE7;
   position: relative;
   overflow: visible;
@@ -2758,9 +2758,13 @@ textarea.formItem__input {
 /* 戻るボタン */
 .form__submit_confirm .back-button {
   flex: 0 0 30%;
-  background: #A9A9A9;
+  background: #afafaf;
   color: #fff;
   padding-left: 28px;
+}
+
+.form__submit_confirm .back-button:hover {
+  background: gray;
 }
 
 /* ← */

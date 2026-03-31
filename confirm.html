@@ -19,6 +19,35 @@
 </head>
 
 <body>
+  <!-- pc版レイアウト -->
+  <div class="pc-layout">
+    <!-- 左上ロゴ -->
+    <div class="pc-logo">
+      <img src="img/common-logo.svg" alt="ポップキャッシュ">
+    </div>  
+
+    <!-- 右側 -->
+    <div class="pc-side">  
+      <img src="img/pc-badge.svg" class="pc-badge" alt="換金率最大5%UP!">  
+      <div class="ctaArea__buttons">
+        <a href="#form" class="ctaBtn ctaBtn--primary">
+          <span class="ctaBtn__sub">今すぐのお申込みで最短 <strong class="js-time"></strong> にお振込み</span>
+          <span class="ctaBtn__main">今すぐお申込みをする</span>
+        </a>
+        <a href="#" class="ctaBtn ctaBtn--dark">
+          <span class="ctaBtn__icon">
+            <img src="img/phone.svg" alt="">
+          </span>
+          <span class="ctaBtn__sub__dark">テキスト</span>
+          <span class="ctaBtn__main__dark">テキストテキスト</span>
+        </a>
+      </div> 
+    </div>  
+  </div>
+
+  <!-- sp版メイン -->
+ <div class="pc-center">
+  <div class="sp-wrapper">  
   <div class="wrapper">
 
   <!-- Header -->
@@ -224,7 +253,8 @@
         </div>
       </div>
     </div>
-
+  </div>
+  </div>
     <!-- JS -->
     <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
     <script src="js/main.js"></script>
@@ -241,7 +271,17 @@
         document.querySelector('.js-card').textContent =
           data.card === 'yes' ? 'はい' : 'いいえ';
 
-        document.querySelector('.js-cardType').textContent = data.cardType || '';
+        const cardTypeMap = {
+          card: 'クレジットカード',
+          paidy1: 'Paidy（Apple専用枠）',
+          paidy2: 'Paidy（後払い）',
+          bundle: 'バンドル',
+          au: 'au PAY',
+          mercari: 'メルカード'
+        };
+        document.querySelector('.js-cardType').textContent =
+          cardTypeMap[data.cardType] || 'ー';
+
         document.querySelector('.js-amount').textContent = data.amount + '万円';
 
         document.querySelector('.js-fullname').textContent = data.fullname || '';
@@ -263,7 +303,9 @@
         document.querySelector('.js-content').textContent = data.content || 'ー';
 
         document.querySelector('.js-agree').textContent =
-          data.agreement === 'yes' ? '同意する' : 'ー';
+          data.agreement === 'yes'
+            ? '副業や投資目的での第三者への支払いではない。'
+            : 'ー';
       }
     </script>
 
