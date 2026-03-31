@@ -1470,7 +1470,7 @@ body {
 
 .voice__progress {
   margin-top: 32px;
-  width: 100%;
+  width: 95%;
   height: 6px;
   background: #ddd;
   border-radius: 999px;
